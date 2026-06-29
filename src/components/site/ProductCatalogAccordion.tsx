@@ -120,7 +120,7 @@ function CategoryAccordionItem({
               <section
                 key={subcategory.slug}
                 id={subcategory.slug}
-                className={`scroll-mt-32 rounded-xl border border-border/70 bg-card/80 p-4 shadow-[0_18px_50px_-38px_var(--foreground)] sm:p-5 ${
+                className={`flex h-full scroll-mt-32 flex-col rounded-xl border border-border/70 bg-card/80 p-4 shadow-[0_18px_50px_-38px_var(--foreground)] sm:p-5 ${
                   subcategory.products.length > 2 ? "md:col-span-2" : ""
                 }`}
               >
@@ -156,7 +156,7 @@ function ProductGrid({
   products: Product[];
 }) {
   return (
-    <div className="grid auto-rows-fr justify-center gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),320px))]">
+    <div className="grid flex-1 auto-rows-fr gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))]">
       {products.map((product) => (
         <ProductCard key={product.name} categoryName={categoryName} subcategory={subcategory} product={product} />
       ))}
