@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Linkedin, Youtube, Phone, Mail, MapPin } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logoAsset from "@/assets/logo.png.asset.json";
+const logo = logoAsset.url;
 import { SITE } from "@/lib/site";
 import { CATEGORIES } from "@/lib/products";
 
