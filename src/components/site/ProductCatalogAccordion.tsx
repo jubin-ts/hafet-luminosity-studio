@@ -181,14 +181,14 @@ function ProductCard({
   product: Product;
 }) {
   return (
-    <article className="card-glow flex h-full min-h-[380px] flex-col overflow-hidden rounded-lg border border-border bg-background/80">
-      <div className="relative aspect-[4/3] overflow-hidden bg-card">
+    <article className="card-glow flex h-full min-h-[360px] flex-col overflow-hidden rounded-lg border border-border bg-background/80">
+      <div className="relative aspect-video overflow-hidden bg-card">
         <img
           src={productImageByName[product.name] ?? subcategory.image}
           alt={`${product.name} for ${categoryName}`}
           loading="lazy"
           width={960}
-          height={720}
+          height={540}
           className="h-full w-full object-cover opacity-95 transition-all duration-500 hover:scale-105 hover:opacity-100"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
