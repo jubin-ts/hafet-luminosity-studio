@@ -6,10 +6,26 @@ import { CATEGORIES } from "@/lib/products";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Hafet Media Solutions — Dubai's Premium LED & Digital Signage" },
-      { name: "description", content: "Premium LED displays, digital signage, kiosks and electronic shelf solutions in Dubai, UAE and across the GCC." },
+      { title: "LED Display & Digital Signage Dubai — Hafet Media" },
+      { name: "description", content: "Hafet Media Solutions supplies and installs LED displays, LCD kiosks, digital signage, 3D signage, neon signs and electronic shelf labels in Dubai, UAE and GCC." },
       { property: "og:title", content: "Hafet Media Solutions — Premium LED & Digital Signage" },
-      { property: "og:description", content: "5+ years, 500+ projects, 50+ clients across UAE, KSA, Qatar, Kuwait, Oman & Bahrain." },
+      { property: "og:description", content: "LED display, digital signage, kiosk, signage and ESL solutions for UAE, KSA, Qatar, Kuwait, Oman and Bahrain." },
+      { property: "og:url", content: "/" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: FAQS.map((item) => ({
+            "@type": "Question",
+            name: item.q,
+            acceptedAnswer: { "@type": "Answer", text: item.a },
+          })),
+        }),
+      },
     ],
   }),
   component: Index,
@@ -32,6 +48,13 @@ const REASONS = [
 const CAT_ICONS = { monitor: Monitor, tv: Tv, sparkles: Sparkles, tag: Tag } as const;
 
 const CLIENTS = ["EMAAR", "MERAAS", "NAKHEEL", "ALDAR", "ETISALAT", "DU", "DEWA", "ENOC", "MAJID AL FUTTAIM", "JUMEIRAH", "RTA", "ADNOC"];
+
+const FAQS = [
+  { q: "What does Hafet Media Solutions install in Dubai?", a: "Hafet Media Solutions installs indoor LED walls, outdoor LED billboards, LCD kiosks, digital signage screens, 3D signage, neon signs, transparent LED and electronic shelf labels for retail, hospitality, corporate, events and public spaces." },
+  { q: "Do you provide LED display solutions across the GCC?", a: "Yes. Hafet supports LED display, digital signage and smart retail projects across the UAE, Saudi Arabia, Qatar, Kuwait, Oman and Bahrain with consultation, supply, installation and support." },
+  { q: "Which display is best for outdoor advertising in UAE weather?", a: "Outdoor fixed LED displays with high brightness, IP-rated cabinets, heat management and corrosion-resistant structures are ideal for UAE and GCC weather conditions." },
+  { q: "Can you handle content, installation and maintenance?", a: "Yes. The team supports consultation, product selection, installation, control systems, content readiness and maintenance planning for long-term display performance." },
+];
 
 function Index() {
   return (
@@ -80,7 +103,7 @@ function Index() {
       </section>
 
       {/* PRODUCT CATEGORIES */}
-      <section className="mx-auto max-w-7xl px-5 py-24">
+      <section className="section-reveal mx-auto max-w-7xl px-5 py-24">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Our Solutions</p>
@@ -124,7 +147,7 @@ function Index() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="border-y border-border/60 bg-card/20">
+      <section className="section-reveal border-y border-border/60 bg-card/20">
         <div className="mx-auto max-w-7xl px-5 py-24">
           <div className="mb-14 text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Why Hafet</p>
@@ -147,7 +170,7 @@ function Index() {
       </section>
 
       {/* CLIENTS MARQUEE */}
-      <section className="py-16">
+      <section className="section-reveal py-16">
         <p className="text-center text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
           Trusted by leading brands across the GCC
         </p>
@@ -165,7 +188,29 @@ function Index() {
       </section>
 
       {/* CTA BANNER */}
-      <section className="px-5 pb-24">
+      <section className="section-reveal border-y border-border/60 bg-card/20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">FAQ</p>
+            <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl">
+              LED display and signage answers
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              Quick answers for businesses comparing LED screens, digital signage, kiosks and ESL solutions in Dubai and the GCC.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            {FAQS.map((item) => (
+              <article key={item.q} className="rounded-xl border border-border bg-card p-6">
+                <h3 className="font-display text-lg font-bold text-gold">{item.q}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.a}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-reveal px-5 py-24">
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/90 via-primary to-[oklch(0.55_0.15_255)] p-10 text-center sm:p-16">
           <div className="absolute inset-0 opacity-20 mix-blend-overlay" style={{ backgroundImage: "radial-gradient(circle at 30% 20%, white, transparent 40%), radial-gradient(circle at 70% 80%, white, transparent 40%)" }} />
           <h2 className="relative font-display text-3xl font-extrabold text-primary-foreground sm:text-4xl lg:text-5xl">
