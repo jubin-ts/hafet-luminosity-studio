@@ -208,7 +208,7 @@ function ProductCard({
             </li>
           ))}
         </ul>
-        <p className="mt-3 text-xs leading-snug text-muted-foreground line-clamp-2">
+        <p className="mt-3 text-xs leading-snug text-muted-foreground line-clamp-3">
           <span className="font-semibold uppercase tracking-wider text-gold">Applications: </span>
           {product.applications}
         </p>
