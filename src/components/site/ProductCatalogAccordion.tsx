@@ -55,8 +55,8 @@ export function ProductCatalogAccordion({ initialCategorySlug }: ProductCatalogA
   };
 
   return (
-    <section className="section-reveal mx-auto max-w-7xl px-5 py-16">
-      <div className="space-y-5">
+    <section className="section-reveal mx-auto max-w-7xl px-4 py-10">
+      <div className="space-y-3">
         {CATEGORIES.map((category) => (
           <CategoryAccordionItem
             key={category.slug}
