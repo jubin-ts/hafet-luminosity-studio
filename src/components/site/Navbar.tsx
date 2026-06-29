@@ -8,14 +8,15 @@ const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   monitor: Monitor, tv: Tv, sparkles: Sparkles, tag: Tag,
 };
 
-const NAV = [
+type NavItem = { to: "/" | "/about" | "/projects" | "/products" | "/blogs" | "/contact"; label: string; mega?: boolean };
+const NAV: NavItem[] = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/projects", label: "Projects" },
   { to: "/products", label: "Products", mega: true },
   { to: "/blogs", label: "Blogs" },
   { to: "/contact", label: "Contact" },
-] as const;
+];
 
 export function Navbar() {
   const [open, setOpen] = useState(false);

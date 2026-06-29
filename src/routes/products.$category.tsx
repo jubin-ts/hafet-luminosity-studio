@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { ArrowRight, ChevronRight } from "lucide-react";
-import { CATEGORIES, getCategory } from "@/lib/products";
+import { CATEGORIES, getCategory, type Subcategory, type Product } from "@/lib/products";
 
 export const Route = createFileRoute("/products/$category")({
   loader: ({ params }) => {
@@ -36,10 +36,10 @@ function CategoryPage() {
     setActive(cat.subcategories[0]?.slug ?? "");
     // honor hash from mega-dropdown
     const hash = typeof window !== "undefined" ? window.location.hash.replace("#", "") : "";
-    if (hash && cat.subcategories.some((s) => s.slug === hash)) setActive(hash);
+    if (hash && cat.subcategories.some((s: Subcategory) => s.slug === hash)) setActive(hash);
   }, [cat.slug]);
 
-  const sub = cat.subcategories.find((s) => s.slug === active) ?? cat.subcategories[0];
+  const sub = cat.subcategories.find((s: Subcategory) => s.slug === active) ?? cat.subcategories[0];
 
   return (
     <>
@@ -66,7 +66,7 @@ function CategoryPage() {
       <section className="sticky top-[68px] z-30 border-b border-border/60 bg-background/85 backdrop-blur-md lg:top-[80px]">
         <div className="mx-auto max-w-7xl overflow-x-auto px-5">
           <div className="flex min-w-max gap-1 py-3">
-            {cat.subcategories.map((s) => (
+            {cat.subcategories.map((s: Subcategory) => (
               <button
                 key={s.slug}
                 onClick={() => {
@@ -94,7 +94,7 @@ function CategoryPage() {
         </header>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {sub?.products.map((p) => (
+          {sub?.products.map((p: Product) => (
             <article key={p.name} className="card-glow flex flex-col overflow-hidden rounded-xl border border-border bg-card">
               <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-background to-card">
                 <img src={cat.image} alt={p.name} loading="lazy" className="h-full w-full object-cover opacity-70 transition-all duration-500 hover:opacity-100 hover:scale-105" />
@@ -107,7 +107,7 @@ function CategoryPage() {
                 <h3 className="font-display text-lg font-bold text-foreground">{p.name}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{p.description}</p>
                 <ul className="mt-4 flex flex-wrap gap-1.5">
-                  {p.specs.map((s) => (
+                  {p.specs.map((s: string) => (
                     <li key={s} className="rounded-full border border-primary/30 bg-primary/5 px-2.5 py-1 text-[11px] font-medium text-primary">
                       {s}
                     </li>
