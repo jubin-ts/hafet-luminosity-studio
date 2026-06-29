@@ -143,12 +143,15 @@ function RootComponent() {
         </main>
         <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-2">
           <a
-            href={SITE.social.whatsapp}
+            href="https://wa.me/971545128212"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat on WhatsApp"
-            className="grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_12px_35px_-10px_rgba(37,211,102,0.7)] transition-transform hover:-translate-y-1 hover:brightness-110"
+            className="group relative grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_12px_35px_-10px_rgba(37,211,102,0.7)] transition-transform hover:-translate-y-1 hover:brightness-110"
           >
+            <span className="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded-md border border-border bg-popover px-3 py-1.5 text-xs font-semibold text-foreground opacity-0 shadow-lg transition-opacity group-hover:opacity-100 sm:block">
+              Chat with us
+            </span>
             <svg viewBox="0 0 32 32" aria-hidden="true" className="h-7 w-7" fill="currentColor">
               <path d="M19.11 17.21c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.11 3.22 5.11 4.51.71.31 1.27.49 1.7.63.71.22 1.36.19 1.87.12.57-.08 1.77-.72 2.02-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/>
               <path d="M26.78 5.22A14.94 14.94 0 0 0 16 .75C7.6.75.78 7.57.78 15.97c0 2.83.78 5.6 2.26 8.02L.64 31.25l7.46-2.36a15.16 15.16 0 0 0 7.9 2.17h.01c8.4 0 15.22-6.82 15.22-15.22 0-4.07-1.59-7.9-4.45-10.62zM16 28.5h-.01a12.51 12.51 0 0 1-6.99-2.13l-.5-.32-4.43 1.4 1.42-4.31-.33-.52a12.5 12.5 0 1 1 23.34-6.65A12.52 12.52 0 0 1 16 28.5z"/>

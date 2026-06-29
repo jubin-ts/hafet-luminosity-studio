@@ -1,6 +1,7 @@
 import { createFileRoute, Link, Outlet, useMatches } from "@tanstack/react-router";
 import { ArrowRight, Monitor, Tv, Sparkles, Tag } from "lucide-react";
 import { CATEGORIES } from "@/lib/products";
+import { ProductCatalogAccordion } from "@/components/site/ProductCatalogAccordion";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
@@ -83,6 +84,8 @@ function ProductsIndex() {
           })}
         </div>
       </section>
+
+      <ProductCatalogAccordion />
     </>
   );
 }

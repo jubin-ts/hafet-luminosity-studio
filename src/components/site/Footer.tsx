@@ -15,14 +15,71 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-5 py-16">
-        <div className="grid gap-12 lg:grid-cols-4">
+        <div className="grid gap-10 text-center md:grid-cols-3 md:items-start md:text-left lg:grid-cols-4 lg:gap-12">
           <div className="lg:col-span-1">
-            <img src={logo} alt={SITE.name} width={200} height={56} className="h-12 w-auto" />
+            <img src={logo} alt={SITE.name} width={200} height={56} className="mx-auto h-12 w-auto md:mx-0" />
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
               Premium LED displays, digital signage and electronic shelf solutions across the GCC.
-              Engineered for impact, built to last.
             </p>
-            <div className="mt-5 flex gap-2">
+            <div className="mt-5 hidden gap-2 lg:flex">
+              {[
+                { href: SITE.social.instagram, Icon: Instagram, label: "Instagram" },
+                { href: SITE.social.linkedin, Icon: Linkedin, label: "LinkedIn" },
+                { href: SITE.social.whatsapp, Icon: WhatsApp, label: "WhatsApp" },
+                { href: SITE.social.youtube, Icon: Youtube, label: "YouTube" },
+              ].map(({ href, Icon, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="grid h-9 w-9 place-items-center rounded-md border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="hidden lg:block">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-gold">Quick Links</h4>
+            <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+              {[
+                ["Home", "/"],
+                ["About", "/about"],
+                ["Projects", "/projects"],
+                ["Products", "/products"],
+                ["Blogs", "/blogs"],
+                ["Contact", "/contact"],
+              ].map(([label, to]) => (
+                <li key={to}>
+                  <Link to={to} className="transition-colors hover:text-primary">{label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="hidden lg:block">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-gold">Products</h4>
+            <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+              {CATEGORIES.map((c) => (
+                <li key={c.slug}>
+                  <Link
+                    to="/products/$category"
+                    params={{ category: c.slug }}
+                    className="transition-colors hover:text-primary"
+                  >
+                    {c.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:order-3 lg:hidden">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-gold">Social</h4>
+            <div className="mt-4 flex justify-center gap-2 md:justify-start">
               {[
                 { href: SITE.social.instagram, Icon: Instagram, label: "Instagram" },
                 { href: SITE.social.linkedin, Icon: Linkedin, label: "LinkedIn" },
@@ -44,52 +101,17 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-gold">Quick Links</h4>
-            <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
-              {[
-                ["Home", "/"],
-                ["About", "/about"],
-                ["Projects", "/projects"],
-                ["Products", "/products"],
-                ["Blogs", "/blogs"],
-                ["Contact", "/contact"],
-              ].map(([label, to]) => (
-                <li key={to}>
-                  <Link to={to} className="transition-colors hover:text-primary">{label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-gold">Products</h4>
-            <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
-              {CATEGORIES.map((c) => (
-                <li key={c.slug}>
-                  <Link
-                    to="/products/$category"
-                    params={{ category: c.slug }}
-                    className="transition-colors hover:text-primary"
-                  >
-                    {c.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider text-gold">Contact</h4>
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-              <li className="flex gap-3">
+              <li className="flex justify-center gap-3 md:justify-start">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 <span>{SITE.address}</span>
               </li>
-              <li className="flex gap-3">
+              <li className="flex justify-center gap-3 md:justify-start">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 <a href={`mailto:${SITE.email}`} className="hover:text-primary">{SITE.email}</a>
               </li>
-              <li className="flex gap-3">
+              <li className="flex justify-center gap-3 md:justify-start">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 <a href={`tel:${SITE.phoneRaw}`} className="hover:text-primary">{SITE.phone}</a>
               </li>

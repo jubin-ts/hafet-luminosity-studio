@@ -24,6 +24,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -36,6 +37,11 @@ export function Navbar() {
     document.body.style.overflow = open ? "hidden" : "";
   }, [open]);
 
+  const closeMenus = () => {
+    setOpen(false);
+    setMegaOpen(false);
+  };
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
@@ -43,7 +49,7 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-3 lg:py-5">
-        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+        <Link to="/" className="flex items-center gap-3" onClick={closeMenus}>
           <img src={logo} alt="Hafet Media Solutions" width={280} height={79} className="h-14 w-auto sm:h-16 lg:h-20" />
           <span className="hidden font-display text-base font-extrabold uppercase leading-tight tracking-wide text-foreground sm:flex sm:flex-col">
             <span>Hafet Media</span>
@@ -63,6 +69,7 @@ export function Navbar() {
               >
                 <Link
                   to={item.to}
+                  onClick={() => setMegaOpen(false)}
                   className="flex items-center gap-1 rounded-md px-2.5 py-2.5 text-xs font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary xl:px-4 xl:text-sm"
                   activeProps={{ className: "text-primary" }}
                 >
@@ -80,6 +87,8 @@ export function Navbar() {
                               <Link
                                 to="/products/$category"
                                 params={{ category: c.slug }}
+                                hash={c.slug}
+                                onClick={() => setMegaOpen(false)}
                                 className="group flex items-center gap-2 text-sm font-semibold text-foreground"
                               >
                                 <span className="grid h-8 w-8 place-items-center rounded-md bg-primary/10 text-primary group-hover:bg-primary/20">
@@ -94,6 +103,7 @@ export function Navbar() {
                                       to="/products/$category"
                                       params={{ category: c.slug }}
                                       hash={s.slug}
+                                      onClick={() => setMegaOpen(false)}
                                       className="text-xs text-muted-foreground transition-colors hover:text-gold"
                                     >
                                       {s.name}
@@ -113,6 +123,7 @@ export function Navbar() {
               <Link
                 key={item.to}
                 to={item.to}
+                onClick={() => setMegaOpen(false)}
                 className="rounded-md px-2.5 py-2.5 text-xs font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary xl:px-4 xl:text-sm"
                 activeProps={{ className: "text-primary" }}
                 activeOptions={{ exact: item.to === "/" }}
@@ -143,30 +154,108 @@ export function Navbar() {
 
       {/* Mobile full-screen overlay */}
       {open && (
-        <div className="fixed inset-0 top-[80px] z-40 overflow-y-auto bg-background min-[900px]:hidden">
-          <nav className="flex flex-col gap-1 px-6 py-8">
-            {NAV.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                onClick={() => setOpen(false)}
-                className="border-b border-border/60 py-4 text-xl font-medium uppercase tracking-wide text-foreground hover:text-primary"
-                activeProps={{ className: "text-primary" }}
-                activeOptions={{ exact: item.to === "/" }}
+        <div className="fixed inset-0 z-40 overflow-y-auto bg-background/98 pt-[92px] min-[900px]:hidden">
+          <nav className="flex min-h-[calc(100svh-92px)] flex-col gap-1 px-6 pb-8">
+            <Link
+              to="/"
+              onClick={closeMenus}
+              className="border-b border-border/60 py-4 text-lg font-semibold uppercase tracking-wide text-foreground hover:text-primary"
+              activeProps={{ className: "text-primary" }}
+              activeOptions={{ exact: true }}
+            >
+              Home
+            </Link>
+            <Link
+              to="/about"
+              onClick={closeMenus}
+              className="border-b border-border/60 py-4 text-lg font-semibold uppercase tracking-wide text-foreground hover:text-primary"
+              activeProps={{ className: "text-primary" }}
+            >
+              About Us
+            </Link>
+            <Link
+              to="/projects"
+              onClick={closeMenus}
+              className="border-b border-border/60 py-4 text-lg font-semibold uppercase tracking-wide text-foreground hover:text-primary"
+              activeProps={{ className: "text-primary" }}
+            >
+              Projects
+            </Link>
+
+            <div className="border-b border-border/60">
+              <button
+                type="button"
+                onClick={() => setMobileProductsOpen((value) => !value)}
+                aria-expanded={mobileProductsOpen}
+                className="flex w-full items-center justify-between py-4 text-lg font-semibold uppercase tracking-wide text-foreground hover:text-primary"
               >
-                {item.label}
-              </Link>
-            ))}
+                Products
+                <ChevronDown className={`h-5 w-5 text-gold transition-transform ${mobileProductsOpen ? "rotate-180" : ""}`} />
+              </button>
+              <div
+                className={`grid transition-[grid-template-rows,opacity] duration-300 ${
+                  mobileProductsOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                }`}
+              >
+                <div className="overflow-hidden pb-4">
+                  <Link
+                    to="/products"
+                    onClick={closeMenus}
+                    className="block rounded-md px-3 py-3 text-sm font-semibold uppercase tracking-wider text-gold hover:bg-card"
+                  >
+                    All Products
+                  </Link>
+                  {CATEGORIES.map((category) => {
+                    const Icon = ICONS[category.icon] ?? Monitor;
+                    return (
+                      <Link
+                        key={category.slug}
+                        to="/products/$category"
+                        params={{ category: category.slug }}
+                        hash={category.slug}
+                        onClick={closeMenus}
+                        className="flex items-center gap-3 rounded-md px-3 py-3 text-sm font-medium text-muted-foreground hover:bg-card hover:text-primary"
+                      >
+                        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-primary/10 text-primary">
+                          <Icon className="h-4 w-4" />
+                        </span>
+                        {category.name}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <Link
+              to="/blogs"
+              onClick={closeMenus}
+              className="border-b border-border/60 py-4 text-lg font-semibold uppercase tracking-wide text-foreground hover:text-primary"
+              activeProps={{ className: "text-primary" }}
+            >
+              Blogs
+            </Link>
             <Link
               to="/contact"
-              onClick={() => setOpen(false)}
-              className="mt-6 inline-flex items-center justify-center rounded-md bg-primary px-5 py-3.5 text-base font-semibold uppercase tracking-wider text-primary-foreground"
+              onClick={closeMenus}
+              className="border-b border-border/60 py-4 text-lg font-semibold uppercase tracking-wide text-foreground hover:text-primary"
+              activeProps={{ className: "text-primary" }}
             >
-              Get a Quote
+              Contact Us
             </Link>
-            <div className="mt-8 space-y-1 text-sm text-muted-foreground">
-              <p>+971 54 512 8212</p>
-              <p>info@hafetmedia.ae</p>
+
+            <div className="mt-auto pt-8">
+              <Link
+                to="/contact"
+                onClick={closeMenus}
+                className="inline-flex w-full items-center justify-center rounded-md bg-primary px-5 py-3.5 text-base font-semibold uppercase tracking-wider text-primary-foreground"
+              >
+                Get a Quote
+              </Link>
+              <div className="mt-6 space-y-1 text-sm text-muted-foreground">
+                <p>+971 54 512 8212</p>
+                <p>info@hafetmedia.ae</p>
+              </div>
             </div>
           </nav>
         </div>
