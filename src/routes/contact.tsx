@@ -140,13 +140,21 @@ function ContactPage() {
             <div className="overflow-hidden rounded-2xl border border-border bg-card">
               <iframe
                 title="Hafet Media Solutions location"
-                src="https://www.google.com/maps?q=Hor+Al+Anz+East,+Dubai&output=embed"
+                src="https://www.google.com/maps?q=RKM+Building+28th+Street+Hor+Al+Anz+East+Dubai&output=embed"
                 width="100%"
                 height="280"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="block grayscale contrast-125"
+                className="block"
               />
+              <a
+                href="https://maps.app.goo.gl/gWMYTgUuBsVEUhJt5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 border-t border-border bg-background/60 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-gold hover:text-primary"
+              >
+                Open in Google Maps
+              </a>
             </div>
 
             <div className="rounded-2xl border border-gold/30 bg-gradient-to-br from-gold/5 to-primary/5 p-7">
