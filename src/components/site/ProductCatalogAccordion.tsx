@@ -163,7 +163,7 @@ function ProductGrid({
         : "justify-center [grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),320px))]";
 
   return (
-    <div className={`grid h-full flex-1 auto-rows-fr gap-5 ${layoutClass}`}>
+    <div className={`grid h-full flex-1 gap-4 ${layoutClass}`}>
       {products.map((product) => (
         <ProductCard key={product.name} categoryName={categoryName} subcategory={subcategory} product={product} />
       ))}
@@ -181,7 +181,7 @@ function ProductCard({
   product: Product;
 }) {
   return (
-    <article className="card-glow flex h-full min-h-[500px] flex-col overflow-hidden rounded-lg border border-border bg-background/80">
+    <article className="card-glow flex h-full min-h-[380px] flex-col overflow-hidden rounded-lg border border-border bg-background/80">
       <div className="relative aspect-[4/3] overflow-hidden bg-card">
         <img
           src={productImageByName[product.name] ?? subcategory.image}
@@ -192,30 +192,30 @@ function ProductCard({
           className="h-full w-full object-cover opacity-95 transition-all duration-500 hover:scale-105 hover:opacity-100"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-        <span className="absolute left-3 top-3 max-w-[calc(100%-1.5rem)] rounded-full bg-background/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-gold backdrop-blur">
+        <span className="absolute left-2.5 top-2.5 max-w-[calc(100%-1.25rem)] rounded-full bg-background/85 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold backdrop-blur">
           {subcategory.name}
         </span>
       </div>
-      <div className="flex flex-1 flex-col p-6">
-        <h3 className="min-h-[3.25rem] font-display text-lg font-bold leading-snug text-foreground line-clamp-2">
+      <div className="flex flex-1 flex-col p-4">
+        <h3 className="min-h-[2.5rem] font-display text-base font-bold leading-snug text-foreground line-clamp-2">
           {product.name}
         </h3>
-        <p className="mt-2 min-h-[3.25rem] text-sm leading-relaxed text-muted-foreground line-clamp-2">{product.description}</p>
-        <ul className="mt-4 grid min-h-[7.25rem] content-start grid-cols-1 gap-1.5 sm:grid-cols-2">
+        <p className="mt-1.5 text-sm leading-snug text-muted-foreground line-clamp-2">{product.description}</p>
+        <ul className="mt-3 grid content-start grid-cols-1 gap-1.5 sm:grid-cols-2">
           {product.specs.slice(0, 6).map((spec) => (
-            <li key={spec} className="flex min-h-9 items-center rounded-md border border-primary/25 bg-primary/5 px-2.5 py-1 text-[11px] font-medium leading-snug text-primary">
+            <li key={spec} className="flex min-h-8 items-center rounded-md border border-primary/25 bg-primary/5 px-2 py-1 text-[11px] font-medium leading-snug text-primary">
               {spec}
             </li>
           ))}
         </ul>
-        <p className="mt-4 min-h-[3rem] text-xs leading-relaxed text-muted-foreground line-clamp-3">
+        <p className="mt-3 text-xs leading-snug text-muted-foreground line-clamp-2">
           <span className="font-semibold uppercase tracking-wider text-gold">Applications: </span>
           {product.applications}
         </p>
-        <div className="mt-auto pt-6">
+        <div className="mt-auto pt-4">
           <Link
             to="/contact"
-            className="inline-flex w-fit items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-primary-foreground transition-all hover:brightness-110 hover:shadow-[0_0_25px_-8px_var(--primary)]"
+            className="inline-flex w-fit items-center gap-2 rounded-md bg-primary px-3 py-2 text-xs font-semibold uppercase tracking-wider text-primary-foreground transition-all hover:brightness-110 hover:shadow-[0_0_25px_-8px_var(--primary)]"
           >
             Get Quote <ArrowRight className="h-3.5 w-3.5" />
           </Link>
