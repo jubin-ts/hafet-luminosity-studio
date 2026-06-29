@@ -9,12 +9,19 @@ const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   monitor: Monitor, tv: Tv, sparkles: Sparkles, tag: Tag,
 };
 
-type NavItem = { to: "/" | "/about" | "/projects" | "/products" | "/blogs" | "/contact"; label: string; mega?: boolean };
+type NavItem =
+  | { to: "/" | "/about" | "/projects" | "/products" | "/blogs" | "/contact"; label: string; mega?: boolean }
+  | { to: "/products/$category"; params: { category: string }; label: string; mega?: boolean };
+
 const NAV: NavItem[] = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/projects", label: "Projects" },
   { to: "/products", label: "Products", mega: true },
+  { to: "/products/$category", params: { category: "led-screen-displays" }, label: "LED" },
+  { to: "/products/$category", params: { category: "lcd-screens-kiosks" }, label: "LCD" },
+  { to: "/products/$category", params: { category: "3d-neon-signage" }, label: "Signage" },
+  { to: "/products/$category", params: { category: "electronic-shelf-solutions" }, label: "Shelf" },
+  { to: "/projects", label: "Projects" },
   { to: "/blogs", label: "Blogs" },
   { to: "/contact", label: "Contact" },
 ];
@@ -104,11 +111,21 @@ export function Navbar() {
                   </div>
                 )}
               </div>
+            ) : "params" in item ? (
+              <Link
+                key={item.label}
+                to={item.to}
+                params={item.params}
+                className="rounded-md px-3 py-2 text-sm font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary"
+                activeProps={{ className: "text-primary" }}
+              >
+                {item.label}
+              </Link>
             ) : (
               <Link
                 key={item.to}
                 to={item.to}
-                className="rounded-md px-4 py-2 text-sm font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary"
+                className="rounded-md px-3 py-2 text-sm font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary"
                 activeProps={{ className: "text-primary" }}
                 activeOptions={{ exact: item.to === "/" }}
               >
@@ -140,18 +157,31 @@ export function Navbar() {
       {open && (
         <div className="fixed inset-0 top-[68px] z-40 overflow-y-auto bg-background lg:hidden">
           <nav className="flex flex-col gap-1 px-6 py-8">
-            {NAV.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                onClick={() => setOpen(false)}
-                className="border-b border-border/60 py-4 text-xl font-medium uppercase tracking-wide text-foreground hover:text-primary"
-                activeProps={{ className: "text-primary" }}
-                activeOptions={{ exact: item.to === "/" }}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV.map((item) =>
+              "params" in item ? (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                  params={item.params}
+                  onClick={() => setOpen(false)}
+                  className="border-b border-border/60 py-4 text-xl font-medium uppercase tracking-wide text-foreground hover:text-primary"
+                  activeProps={{ className: "text-primary" }}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setOpen(false)}
+                  className="border-b border-border/60 py-4 text-xl font-medium uppercase tracking-wide text-foreground hover:text-primary"
+                  activeProps={{ className: "text-primary" }}
+                  activeOptions={{ exact: item.to === "/" }}
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
