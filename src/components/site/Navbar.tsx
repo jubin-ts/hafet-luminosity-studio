@@ -9,12 +9,19 @@ const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   monitor: Monitor, tv: Tv, sparkles: Sparkles, tag: Tag,
 };
 
-type NavItem = { to: "/" | "/about" | "/projects" | "/products" | "/blogs" | "/contact"; label: string; mega?: boolean };
+type NavItem =
+  | { to: "/" | "/about" | "/projects" | "/products" | "/blogs" | "/contact"; label: string; mega?: boolean }
+  | { to: "/products/$category"; params: { category: string }; label: string; mega?: boolean };
+
 const NAV: NavItem[] = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/projects", label: "Projects" },
   { to: "/products", label: "Products", mega: true },
+  { to: "/products/$category", params: { category: "led-screen-displays" }, label: "LED" },
+  { to: "/products/$category", params: { category: "lcd-screens-kiosks" }, label: "LCD" },
+  { to: "/products/$category", params: { category: "3d-neon-signage" }, label: "Signage" },
+  { to: "/products/$category", params: { category: "electronic-shelf-solutions" }, label: "Shelf" },
+  { to: "/projects", label: "Projects" },
   { to: "/blogs", label: "Blogs" },
   { to: "/contact", label: "Contact" },
 ];
