@@ -47,8 +47,8 @@ import productNeonFlexSign from "@/assets/product-neon-flex-sign.jpg";
 import productNeonAcrylicSignage from "@/assets/product-neon-acrylic-signage.jpg";
 import productNeonSolidBacklitSignage from "@/assets/product-neon-solid-backlit-signage.jpg";
 import productNeonChaneliumDigitalSignage from "@/assets/product-neon-chanelium-digital-signage.jpg";
-import productEslEinkLabel from "@/assets/esl-eink-label.svg";
-import productEslLcdShelfDisplay from "@/assets/esd-lcd-shelf-display.svg";
+import productEslEinkLabel from "@/assets/product-esl-eink-label.jpg";
+import productEslLcdShelfDisplay from "@/assets/product-esl-lcd-shelf-display.jpg";
 
 export const productImageByName: Record<string, string> = {
   "Wall Mount Indoor LED Screen": productIndoorWallMountLed,
