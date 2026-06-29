@@ -157,18 +157,31 @@ export function Navbar() {
       {open && (
         <div className="fixed inset-0 top-[68px] z-40 overflow-y-auto bg-background lg:hidden">
           <nav className="flex flex-col gap-1 px-6 py-8">
-            {NAV.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                onClick={() => setOpen(false)}
-                className="border-b border-border/60 py-4 text-xl font-medium uppercase tracking-wide text-foreground hover:text-primary"
-                activeProps={{ className: "text-primary" }}
-                activeOptions={{ exact: item.to === "/" }}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV.map((item) =>
+              "params" in item ? (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                  params={item.params}
+                  onClick={() => setOpen(false)}
+                  className="border-b border-border/60 py-4 text-xl font-medium uppercase tracking-wide text-foreground hover:text-primary"
+                  activeProps={{ className: "text-primary" }}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setOpen(false)}
+                  className="border-b border-border/60 py-4 text-xl font-medium uppercase tracking-wide text-foreground hover:text-primary"
+                  activeProps={{ className: "text-primary" }}
+                  activeOptions={{ exact: item.to === "/" }}
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
