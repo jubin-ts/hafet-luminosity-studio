@@ -96,9 +96,9 @@ function CategoryPage() {
           <div className="mt-3 h-[2px] w-16 bg-gradient-to-r from-primary to-gold" />
         </header>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {sub?.products.map((p: Product) => (
-            <article key={p.name} className="card-glow flex flex-col overflow-hidden rounded-xl border border-border bg-card">
+            <article key={p.name} className="card-glow flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card">
               <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-background to-card">
                 <img
                   src={productImageByName[p.name] ?? sub?.image ?? cat.image}
@@ -114,8 +114,8 @@ function CategoryPage() {
                 </span>
               </div>
               <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-display text-lg font-bold text-foreground">{p.name}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.description}</p>
+                <h3 className="font-display text-lg font-bold text-foreground line-clamp-2 min-h-[3.5rem]">{p.name}</h3>
+                <p className="mt-2 text-sm text-muted-foreground line-clamp-3 min-h-[3.75rem]">{p.description}</p>
                 <ul className="mt-4 flex flex-wrap gap-1.5">
                   {p.specs.map((s: string) => (
                     <li key={s} className="rounded-full border border-primary/30 bg-primary/5 px-2.5 py-1 text-[11px] font-medium text-primary">
@@ -123,16 +123,18 @@ function CategoryPage() {
                     </li>
                   ))}
                 </ul>
-                <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+                <p className="mt-4 text-xs leading-relaxed text-muted-foreground line-clamp-3">
                   <span className="font-semibold uppercase tracking-wider text-gold">Applications: </span>
                   {p.applications}
                 </p>
-                <Link
-                  to="/contact"
-                  className="mt-6 inline-flex w-fit items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-primary-foreground transition-all hover:brightness-110 hover:shadow-[0_0_25px_-8px_var(--primary)]"
-                >
-                  Get Quote <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
+                <div className="mt-auto pt-6">
+                  <Link
+                    to="/contact"
+                    className="inline-flex w-fit items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-primary-foreground transition-all hover:brightness-110 hover:shadow-[0_0_25px_-8px_var(--primary)]"
+                  >
+                    Get Quote <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
               </div>
             </article>
           ))}
