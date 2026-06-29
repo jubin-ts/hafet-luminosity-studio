@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { MapPin, Mail, Phone, Send, CheckCircle2, MessageCircle } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { CATEGORIES } from "@/lib/products";
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   const [sent, setSent] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const subject = encodeURIComponent(`Project enquiry from ${form.get("name") || "website visitor"}`);

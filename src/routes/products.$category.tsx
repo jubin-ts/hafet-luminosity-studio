@@ -13,11 +13,13 @@ export const Route = createFileRoute("/products/$category")({
   head: ({ loaderData }) => ({
     meta: [
       { title: `${loaderData?.cat.name ?? "Products"} — Hafet Media Solutions` },
-      { name: "description", content: loaderData?.cat.short ?? "Premium LED & signage products in Dubai." },
+      { name: "description", content: `${loaderData?.cat.short ?? "Premium LED and signage products in Dubai."} Available for UAE and GCC projects with consultation, supply, installation and support from Hafet Media Solutions.` },
       { property: "og:title", content: `${loaderData?.cat.name ?? "Products"} — Hafet Media Solutions` },
-      { property: "og:description", content: loaderData?.cat.short ?? "" },
+      { property: "og:description", content: `${loaderData?.cat.short ?? "Premium LED and signage products in Dubai."} Installed across UAE and GCC.` },
       { property: "og:image", content: loaderData?.cat.image },
+      { property: "og:url", content: `/products/${loaderData?.cat.slug ?? ""}` },
     ],
+    links: [{ rel: "canonical", href: `/products/${loaderData?.cat.slug ?? ""}` }],
   }),
   component: CategoryPage,
   notFoundComponent: () => (
@@ -45,7 +47,7 @@ function CategoryPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-border/60">
+      <section className="section-reveal relative overflow-hidden border-b border-border/60">
         <div className="absolute inset-0">
           <img src={cat.image} alt="" className="h-full w-full object-cover opacity-25" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/85 to-background" />
@@ -88,7 +90,7 @@ function CategoryPage() {
       </section>
 
       {/* PRODUCT GRID */}
-      <section className="mx-auto max-w-7xl px-5 py-16">
+      <section className="section-reveal mx-auto max-w-7xl px-5 py-16">
         <header className="mb-10">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">{sub?.name}</h2>
           <div className="mt-3 h-[2px] w-16 bg-gradient-to-r from-primary to-gold" />
@@ -138,7 +140,7 @@ function CategoryPage() {
       </section>
 
       {/* Related categories */}
-      <section className="border-t border-border/60 bg-card/20">
+      <section className="section-reveal border-t border-border/60 bg-card/20">
         <div className="mx-auto max-w-7xl px-5 py-16">
           <h2 className="font-display text-xl font-bold">Explore other categories</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

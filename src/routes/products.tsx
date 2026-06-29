@@ -5,11 +5,13 @@ import { CATEGORIES } from "@/lib/products";
 export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
-      { title: "Products — Hafet Media Solutions" },
-      { name: "description", content: "Explore our full catalog: LED displays, LCD video walls & kiosks, 3D & neon signage, and electronic shelf solutions." },
-      { property: "og:title", content: "Products — Hafet Media Solutions" },
-      { property: "og:description", content: "Premium LED, signage and digital retail solutions across the GCC." },
+      { title: "LED Displays, Kiosks & Digital Signage Products Dubai" },
+      { name: "description", content: "Explore Hafet Media products: indoor LED, outdoor LED, rental LED, transparent LED, LCD video walls, kiosks, 3D signage, neon signs and electronic shelf labels in Dubai and GCC." },
+      { property: "og:title", content: "LED Display & Digital Signage Products — Hafet Media" },
+      { property: "og:description", content: "Premium LED screens, LCD kiosks, signage and smart retail display solutions for UAE and GCC projects." },
+      { property: "og:url", content: "/products" },
     ],
+    links: [{ rel: "canonical", href: "/products" }],
   }),
   component: ProductsLayout,
 });
@@ -26,7 +28,7 @@ function ProductsLayout() {
 function ProductsIndex() {
   return (
     <>
-      <section className="border-b border-border/60">
+      <section className="section-reveal border-b border-border/60">
         <div className="mx-auto max-w-7xl px-5 py-20 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Catalog</p>
           <h1 className="mt-3 font-display text-4xl font-extrabold sm:text-5xl lg:text-6xl">
@@ -39,7 +41,7 @@ function ProductsIndex() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-20">
+      <section className="section-reveal mx-auto max-w-7xl px-5 py-20">
         <div className="grid gap-8 lg:grid-cols-2">
           {CATEGORIES.map((c) => {
             const Icon = ICONS[c.icon as keyof typeof ICONS] ?? Monitor;
