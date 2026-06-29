@@ -51,7 +51,7 @@
   --popover: oklch(0.18 0 0);
   --popover-foreground: oklch(1 0 0);
 
-  --primary: oklch(0.68 0.17 50);          /* #E87722 burnt orange */
+  --primary: oklch(0.68 0.18 252);         /* electric blue */
   --primary-foreground: oklch(0.16 0 0);
   --gold: oklch(0.78 0.13 85);             /* #C9A84C gold */
 
