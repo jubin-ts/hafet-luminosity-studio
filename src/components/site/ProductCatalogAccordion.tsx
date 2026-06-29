@@ -115,17 +115,26 @@ function CategoryAccordionItem({
         }`}
       >
         <div className="overflow-hidden">
-          <div className="space-y-14 border-t border-border/60 px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
+          <div className="grid auto-rows-fr gap-6 border-t border-border/60 bg-background/25 px-4 py-8 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-10">
             {category.subcategories.map((subcategory) => (
-              <section key={subcategory.slug} id={subcategory.slug} className="scroll-mt-32">
-                <header className="mb-6 flex min-w-0 items-end justify-between gap-4 border-b border-border/50 pb-4">
+              <section
+                key={subcategory.slug}
+                id={subcategory.slug}
+                className={`scroll-mt-32 rounded-xl border border-border/70 bg-card/80 p-4 shadow-[0_18px_50px_-38px_var(--foreground)] sm:p-5 ${
+                  subcategory.products.length > 2 ? "lg:col-span-2" : ""
+                }`}
+              >
+                <header className="mb-5 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 border-b border-border/50 pb-4">
                   <div className="min-w-0">
                     <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">{category.name}</p>
-                    <h2 className="mt-2 font-display text-2xl font-bold text-foreground sm:text-3xl">
+                    <h2 className="mt-2 font-display text-xl font-bold text-foreground sm:text-2xl">
                       {subcategory.name}
                     </h2>
                   </div>
-                  <div className="hidden h-[2px] w-24 shrink-0 bg-gradient-to-r from-primary to-gold sm:block" />
+                  <div className="relative h-16 w-20 shrink-0 overflow-hidden rounded-lg border border-border bg-background sm:h-20 sm:w-24">
+                    <img src={subcategory.image} alt="" loading="lazy" className="h-full w-full object-cover opacity-90" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/70 to-transparent" />
+                  </div>
                 </header>
                 <ProductGrid categoryName={category.name} subcategory={subcategory} products={subcategory.products} />
               </section>
@@ -147,7 +156,7 @@ function ProductGrid({
   products: Product[];
 }) {
   return (
-    <div className="grid auto-rows-fr justify-center gap-6 [grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),320px))]">
+    <div className="grid auto-rows-fr gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))]">
       {products.map((product) => (
         <ProductCard key={product.name} categoryName={categoryName} subcategory={subcategory} product={product} />
       ))}
@@ -165,29 +174,29 @@ function ProductCard({
   product: Product;
 }) {
   return (
-    <article className="card-glow flex h-full min-h-[520px] flex-col overflow-hidden rounded-xl border border-border bg-card">
-      <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-background to-card">
+    <article className="card-glow flex h-full min-h-[500px] flex-col overflow-hidden rounded-lg border border-border bg-background/80">
+      <div className="relative aspect-[4/3] overflow-hidden bg-card">
         <img
           src={productImageByName[product.name] ?? subcategory.image}
           alt={`${product.name} for ${categoryName}`}
           loading="lazy"
           width={960}
           height={720}
-          className="h-full w-full object-cover opacity-90 transition-all duration-500 hover:scale-105 hover:opacity-100"
+          className="h-full w-full object-cover opacity-95 transition-all duration-500 hover:scale-105 hover:opacity-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
-        <span className="absolute left-3 top-3 rounded-full bg-background/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-gold backdrop-blur">
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+        <span className="absolute left-3 top-3 max-w-[calc(100%-1.5rem)] rounded-full bg-background/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-gold backdrop-blur">
           {subcategory.name}
         </span>
       </div>
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="min-h-[3.5rem] font-display text-lg font-bold text-foreground line-clamp-2">
+        <h3 className="min-h-[3.25rem] font-display text-lg font-bold leading-snug text-foreground line-clamp-2">
           {product.name}
         </h3>
-        <p className="mt-2 min-h-[3.75rem] text-sm text-muted-foreground line-clamp-3">{product.description}</p>
-        <ul className="mt-4 flex flex-wrap gap-1.5">
+        <p className="mt-2 min-h-[3.25rem] text-sm leading-relaxed text-muted-foreground line-clamp-2">{product.description}</p>
+        <ul className="mt-4 grid grid-cols-1 gap-1.5 sm:grid-cols-2">
           {product.specs.slice(0, 5).map((spec) => (
-            <li key={spec} className="rounded-full border border-primary/30 bg-primary/5 px-2.5 py-1 text-[11px] font-medium text-primary">
+            <li key={spec} className="rounded-md border border-primary/25 bg-primary/5 px-2.5 py-1 text-[11px] font-medium leading-snug text-primary">
               {spec}
             </li>
           ))}
