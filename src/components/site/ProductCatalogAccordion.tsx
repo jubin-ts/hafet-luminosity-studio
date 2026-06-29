@@ -147,27 +147,10 @@ function ProductGrid({
   products: Product[];
 }) {
   return (
-    <div className="grid auto-rows-fr gap-6 [grid-template-columns:repeat(6,minmax(0,1fr))]">
-      {products.map((product, index) => {
-        const tabletCentered = products.length % 2 === 1 && index === products.length - 1;
-        const desktopRemainder = products.length % 3;
-        const desktopLastRowStart =
-          desktopRemainder > 0 && index === products.length - desktopRemainder;
-        const desktopStartClass = desktopLastRowStart
-          ? desktopRemainder === 1
-            ? "lg:col-start-3"
-            : "lg:col-start-2"
-          : "";
-
-        return (
-          <div
-            key={product.name}
-            className={`col-span-6 sm:col-span-3 ${tabletCentered ? "sm:col-start-2" : ""} lg:col-span-2 ${desktopStartClass}`}
-          >
-            <ProductCard categoryName={categoryName} subcategory={subcategory} product={product} />
-          </div>
-        );
-      })}
+    <div className="grid auto-rows-fr justify-center gap-6 [grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),320px))]">
+      {products.map((product) => (
+        <ProductCard key={product.name} categoryName={categoryName} subcategory={subcategory} product={product} />
+      ))}
     </div>
   );
 }
