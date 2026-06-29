@@ -97,7 +97,7 @@ function CategoryPage() {
           {sub?.products.map((p: Product) => (
             <article key={p.name} className="card-glow flex flex-col overflow-hidden rounded-xl border border-border bg-card">
               <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-background to-card">
-                <img src={cat.image} alt={p.name} loading="lazy" className="h-full w-full object-cover opacity-70 transition-all duration-500 hover:opacity-100 hover:scale-105" />
+                <img src={sub?.image ?? cat.image} alt={p.name} loading="lazy" className="h-full w-full object-cover opacity-90 transition-all duration-500 hover:opacity-100 hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
                 <span className="absolute left-3 top-3 rounded-full bg-background/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-gold backdrop-blur">
                   {sub.name}
