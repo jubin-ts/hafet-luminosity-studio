@@ -155,8 +155,15 @@ function ProductGrid({
   subcategory: Subcategory;
   products: Product[];
 }) {
+  const layoutClass =
+    products.length === 1
+      ? "grid-cols-1"
+      : products.length === 2
+        ? "grid-cols-1 sm:grid-cols-2"
+        : "justify-center [grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),320px))]";
+
   return (
-    <div className="grid flex-1 auto-rows-fr gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))]">
+    <div className={`grid h-full flex-1 auto-rows-fr gap-5 ${layoutClass}`}>
       {products.map((product) => (
         <ProductCard key={product.name} categoryName={categoryName} subcategory={subcategory} product={product} />
       ))}
