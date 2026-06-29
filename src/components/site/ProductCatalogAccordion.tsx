@@ -115,13 +115,13 @@ function CategoryAccordionItem({
         }`}
       >
         <div className="overflow-hidden">
-          <div className="grid auto-rows-fr gap-6 border-t border-border/60 bg-background/25 px-4 py-8 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-10">
+          <div className="grid auto-rows-fr gap-6 border-t border-border/60 bg-background/25 px-4 py-8 sm:px-6 md:grid-cols-2 lg:px-8 lg:py-10">
             {category.subcategories.map((subcategory) => (
               <section
                 key={subcategory.slug}
                 id={subcategory.slug}
                 className={`scroll-mt-32 rounded-xl border border-border/70 bg-card/80 p-4 shadow-[0_18px_50px_-38px_var(--foreground)] sm:p-5 ${
-                  subcategory.products.length > 2 ? "lg:col-span-2" : ""
+                  subcategory.products.length > 2 ? "md:col-span-2" : ""
                 }`}
               >
                 <header className="mb-5 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 border-b border-border/50 pb-4">
@@ -156,7 +156,7 @@ function ProductGrid({
   products: Product[];
 }) {
   return (
-    <div className="grid auto-rows-fr gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))]">
+    <div className="grid auto-rows-fr justify-center gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),320px))]">
       {products.map((product) => (
         <ProductCard key={product.name} categoryName={categoryName} subcategory={subcategory} product={product} />
       ))}
