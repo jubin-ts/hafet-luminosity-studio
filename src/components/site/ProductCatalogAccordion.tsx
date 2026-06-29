@@ -194,14 +194,14 @@ function ProductCard({
           {product.name}
         </h3>
         <p className="mt-2 min-h-[3.25rem] text-sm leading-relaxed text-muted-foreground line-clamp-2">{product.description}</p>
-        <ul className="mt-4 grid grid-cols-1 gap-1.5 sm:grid-cols-2">
-          {product.specs.slice(0, 5).map((spec) => (
-            <li key={spec} className="rounded-md border border-primary/25 bg-primary/5 px-2.5 py-1 text-[11px] font-medium leading-snug text-primary">
+        <ul className="mt-4 grid min-h-[7.25rem] content-start grid-cols-1 gap-1.5 sm:grid-cols-2">
+          {product.specs.slice(0, 6).map((spec) => (
+            <li key={spec} className="flex min-h-9 items-center rounded-md border border-primary/25 bg-primary/5 px-2.5 py-1 text-[11px] font-medium leading-snug text-primary">
               {spec}
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-xs leading-relaxed text-muted-foreground line-clamp-3">
+        <p className="mt-4 min-h-[3rem] text-xs leading-relaxed text-muted-foreground line-clamp-3">
           <span className="font-semibold uppercase tracking-wider text-gold">Applications: </span>
           {product.applications}
         </p>
