@@ -25,6 +25,26 @@ import catLed from "@/assets/cat-led.jpg";
 import catLcd from "@/assets/cat-lcd.jpg";
 import catSign from "@/assets/cat-signage.jpg";
 import catEsl from "@/assets/cat-esl.jpg";
+import subLedIndoor from "@/assets/sub-led-indoor.jpg";
+import subLedOutdoor from "@/assets/sub-led-outdoor.jpg";
+import subLedTransparent from "@/assets/sub-led-transparent.jpg";
+import subLedFlexible from "@/assets/sub-led-flexible.jpg";
+import subLedPoster from "@/assets/sub-led-poster.jpg";
+import subLedRental from "@/assets/sub-led-rental.jpg";
+import subLedImmersive from "@/assets/sub-led-immersive.jpg";
+import subLedTaxi from "@/assets/sub-led-taxi.jpg";
+import subLedFloor from "@/assets/sub-led-floor.jpg";
+import subLedStadium from "@/assets/sub-led-stadium.jpg";
+import subLcdVideoWall from "@/assets/sub-lcd-videowall.jpg";
+import subLcdWallMount from "@/assets/sub-lcd-wallmount.jpg";
+import subLcdAFrame from "@/assets/sub-lcd-aframe.jpg";
+import subLcdKiosk from "@/assets/sub-lcd-kiosk.jpg";
+import subLcdRotating from "@/assets/sub-lcd-rotating.jpg";
+import subLcdFloor from "@/assets/sub-lcd-floor.jpg";
+import sub3dSignage from "@/assets/sub-3d-signage.jpg";
+import subNeonSignage from "@/assets/sub-neon-signage.jpg";
+import subEslLabel from "@/assets/sub-esl-label.jpg";
+import subEslLcd from "@/assets/sub-esl-lcd.jpg";
 
 export const CATEGORIES: Category[] = [
   {
@@ -37,6 +57,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "indoor",
         name: "Indoor LED Displays",
+        image: subLedIndoor,
         products: [
           {
             name: "Wall Mount Indoor LED Screen",
@@ -67,6 +88,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "outdoor",
         name: "Outdoor LED Displays",
+        image: subLedOutdoor,
         products: [
           {
             name: "Fixed Outdoor LED Screen (SMD)",
@@ -103,6 +125,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "transparent",
         name: "Transparent LED Screens",
+        image: subLedTransparent,
         products: [
           {
             name: "Mesh Transparent LED Screen",
@@ -127,6 +150,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "flexible",
         name: "Flexible LED Screens",
+        image: subLedFlexible,
         products: [
           {
             name: "Curved LED Display",
@@ -169,6 +193,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "poster",
         name: "Poster LED Screens",
+        image: subLedPoster,
         products: [
           {
             name: "Indoor LED Poster Screen",
@@ -211,6 +236,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "rental",
         name: "Rental LED Series",
+        image: subLedRental,
         products: [
           {
             name: "Indoor Rental LED Screen",
@@ -229,6 +255,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "immersive",
         name: "Immersive LED Displays",
+        image: subLedImmersive,
         products: [
           {
             name: "360° Immersive LED Room",
@@ -241,6 +268,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "taxi-top",
         name: "Taxi Top Display",
+        image: subLedTaxi,
         products: [
           {
             name: "LED Taxi Topper Display",
@@ -253,6 +281,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "floor",
         name: "Floor LED Display",
+        image: subLedFloor,
         products: [
           {
             name: "Interactive Floor LED Screen",
@@ -265,6 +294,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "stadium-perimeter",
         name: "Stadium Perimeter LED",
+        image: subLedStadium,
         products: [
           {
             name: "Stadium Perimeter LED Board",
@@ -286,6 +316,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "video-wall",
         name: "LCD Video Wall",
+        image: subLcdVideoWall,
         products: [
           {
             name: "Narrow Bezel LCD Video Wall",
@@ -298,6 +329,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "wall-mount",
         name: "Wall Mount LCD Displays",
+        image: subLcdWallMount,
         products: [
           {
             name: "Wall Mount Commercial Display",
@@ -310,6 +342,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "a-frame",
         name: "A-Frame LCD Display",
+        image: subLcdAFrame,
         products: [
           {
             name: "A-Frame Digital Display Screen",
@@ -322,6 +355,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "touch-kiosks",
         name: "Touch Kiosks",
+        image: subLcdKiosk,
         products: [
           {
             name: "Interactive Touch Kiosk",
@@ -340,6 +374,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "rotating",
         name: "Rotating LCD Displays",
+        image: subLcdRotating,
         products: [
           {
             name: "Rotating Digital Display",
@@ -352,6 +387,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "floor-standing",
         name: "Floor Standing LCD Displays",
+        image: subLcdFloor,
         products: [
           {
             name: "Floor Standing Digital Signage Display",
@@ -373,6 +409,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "3d-signage",
         name: "3D Signage",
+        image: sub3dSignage,
         products: [
           { name: "3D Acrylic Signage", description: "LED-lit acrylic letters with depth and dimension.", specs: ["Indoor/outdoor", "Custom shapes & sizes"], applications: "Shops, offices, restaurants, reception areas." },
           { name: "Aluminium 3D Signage", description: "Durable metal 3D lettering built for UAE weather.", specs: ["Professional finish", "Weather-resistant"], applications: "Building exteriors, corporate offices, showrooms." },
@@ -387,6 +424,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "neon-signage",
         name: "Neon Signage",
+        image: subNeonSignage,
         products: [
           { name: "LED Neon Flex Signs", description: "Custom text and shapes in flexible neon-effect LED.", specs: ["Multiple colours & fonts", "Energy efficient", "Indoor/outdoor"], applications: "Restaurants, bars, retail, offices, events." },
           { name: "Acrylic Neon Signage", description: "Backlit acrylic with glowing neon effect.", specs: ["Custom designs", "Lightweight", "Modern finish"], applications: "Cafes, boutiques, reception areas, social media walls." },
@@ -406,6 +444,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "esl",
         name: "Electronic Shelf Labels (ESL)",
+        image: subEslLabel,
         products: [
           {
             name: "E-Ink Electronic Shelf Label",
@@ -426,6 +465,7 @@ export const CATEGORIES: Category[] = [
       {
         slug: "esd",
         name: "Electronic Shelf Displays (ESD)",
+        image: subEslLcd,
         products: [
           {
             name: "LCD Shelf Display Screen",
