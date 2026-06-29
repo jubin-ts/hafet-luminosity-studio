@@ -8,6 +8,7 @@ export type Product = {
 export type Subcategory = {
   slug: string;
   name: string;
+  image: string;
   products: Product[];
 };
 
