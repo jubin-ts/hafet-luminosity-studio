@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { CATEGORIES, getCategory, type Subcategory, type Product } from "@/lib/products";
+import { productImageByName } from "@/lib/productImages";
 
 export const Route = createFileRoute("/products/$category")({
   loader: ({ params }) => {
@@ -97,7 +98,14 @@ function CategoryPage() {
           {sub?.products.map((p: Product) => (
             <article key={p.name} className="card-glow flex flex-col overflow-hidden rounded-xl border border-border bg-card">
               <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-background to-card">
-                <img src={sub?.image ?? cat.image} alt={p.name} loading="lazy" className="h-full w-full object-cover opacity-90 transition-all duration-500 hover:opacity-100 hover:scale-105" />
+                <img
+                  src={productImageByName[p.name] ?? sub?.image ?? cat.image}
+                  alt={p.name}
+                  loading="lazy"
+                  width={960}
+                  height={720}
+                  className="h-full w-full object-cover opacity-90 transition-all duration-500 hover:scale-105 hover:opacity-100"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
                 <span className="absolute left-3 top-3 rounded-full bg-background/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-gold backdrop-blur">
                   {sub.name}
