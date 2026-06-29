@@ -111,11 +111,21 @@ export function Navbar() {
                   </div>
                 )}
               </div>
+            ) : "params" in item ? (
+              <Link
+                key={item.label}
+                to={item.to}
+                params={item.params}
+                className="rounded-md px-3 py-2 text-sm font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary"
+                activeProps={{ className: "text-primary" }}
+              >
+                {item.label}
+              </Link>
             ) : (
               <Link
                 key={item.to}
                 to={item.to}
-                className="rounded-md px-4 py-2 text-sm font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary"
+                className="rounded-md px-3 py-2 text-sm font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary"
                 activeProps={{ className: "text-primary" }}
                 activeOptions={{ exact: item.to === "/" }}
               >
