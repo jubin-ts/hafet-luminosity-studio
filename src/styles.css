@@ -51,7 +51,7 @@
   --popover: oklch(0.18 0 0);
   --popover-foreground: oklch(1 0 0);
 
-  --primary: oklch(0.68 0.17 50);          /* #E87722 burnt orange */
+  --primary: oklch(0.68 0.18 252);         /* electric blue */
   --primary-foreground: oklch(0.16 0 0);
   --gold: oklch(0.78 0.13 85);             /* #C9A84C gold */
 
@@ -59,13 +59,13 @@
   --secondary-foreground: oklch(1 0 0);
   --muted: oklch(0.26 0 0);
   --muted-foreground: oklch(0.82 0 0);     /* #CCC light grey */
-  --accent: oklch(0.68 0.17 50);
+  --accent: oklch(0.78 0.13 85);
   --accent-foreground: oklch(0.16 0 0);
   --destructive: oklch(0.6 0.22 25);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.3 0 0);
   --input: oklch(0.26 0 0);
-  --ring: oklch(0.68 0.17 50);
+  --ring: oklch(0.68 0.18 252);
 }
 
 .dark { color-scheme: dark; }

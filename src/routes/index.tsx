@@ -45,16 +45,12 @@ function Index() {
         </div>
 
         <div className="mx-auto flex min-h-[88vh] max-w-7xl flex-col items-center justify-center px-5 py-24 text-center">
-          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-gold">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
-            Based in Dubai · Serving GCC
-          </span>
           <h1 className="max-w-4xl text-balance font-display text-4xl font-extrabold leading-[1.05] sm:text-6xl lg:text-7xl">
-            Dubai's <span className="text-gradient-gold">Premium LED</span> &amp; Digital Signage Solutions
+            Where <span className="text-gradient-gold">pixels</span> meet <span className="text-gradient-gold">presence</span>.
           </h1>
           <p className="mt-6 max-w-2xl text-balance text-base leading-relaxed text-muted-foreground sm:text-lg">
-            From iconic outdoor billboards to immersive 360° LED rooms — we design,
-            engineer and install end-to-end visual experiences for brands across the MENA region.
+            From iconic outdoor billboards to immersive 360° LED rooms — Hafet designs,
+            engineers and installs end-to-end visual experiences for brands across the MENA region.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <Link
@@ -170,7 +166,7 @@ function Index() {
 
       {/* CTA BANNER */}
       <section className="px-5 pb-24">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/90 via-primary to-[oklch(0.6_0.18_45)] p-10 text-center sm:p-16">
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/90 via-primary to-[oklch(0.55_0.15_255)] p-10 text-center sm:p-16">
           <div className="absolute inset-0 opacity-20 mix-blend-overlay" style={{ backgroundImage: "radial-gradient(circle at 30% 20%, white, transparent 40%), radial-gradient(circle at 70% 80%, white, transparent 40%)" }} />
           <h2 className="relative font-display text-3xl font-extrabold text-primary-foreground sm:text-4xl lg:text-5xl">
             Ready to light up your brand?

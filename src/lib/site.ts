@@ -1,7 +1,7 @@
 export const SITE = {
   name: "Hafet Media Solutions",
   short: "Hafet Media",
-  tagline: "Dubai's Premium LED & Digital Signage Solutions",
+  tagline: "Where pixels meet presence.",
   address: "Office No. 102, RKM Building, 28th Street, Hor Al Anz East, Dubai, UAE",
   email: "info@hafetmedia.ae",
   phone: "+971 54 512 8212",
