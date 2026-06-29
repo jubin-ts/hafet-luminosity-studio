@@ -129,9 +129,9 @@ function CategoryPage() {
                 </p>
                 <Link
                   to="/contact"
-                  className="mt-auto inline-flex w-fit items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-primary-foreground transition-all hover:brightness-110 hover:shadow-[0_0_25px_-8px_var(--primary)] pt-2.5"
+                  className="mt-6 inline-flex w-fit items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-primary-foreground transition-all hover:brightness-110 hover:shadow-[0_0_25px_-8px_var(--primary)]"
                 >
-                  <span className="pt-0">Get Quote</span> <ArrowRight className="h-3.5 w-3.5" />
+                  Get Quote <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
             </article>
