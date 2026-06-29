@@ -43,8 +43,12 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-3 lg:py-5">
-        <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
+        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <img src={logo} alt="Hafet Media Solutions" width={280} height={79} className="h-14 w-auto sm:h-16 lg:h-20" />
+          <span className="hidden font-display text-base font-extrabold uppercase leading-tight tracking-wide text-foreground sm:flex sm:flex-col">
+            <span>Hafet Media</span>
+            <span className="text-gradient-gold">Solutions</span>
+          </span>
         </Link>
 
         {/* Desktop nav */}
