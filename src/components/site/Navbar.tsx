@@ -42,13 +42,13 @@ export function Navbar() {
         scrolled ? "bg-background/90 backdrop-blur-md border-b border-border/60" : "bg-background/40 backdrop-blur-sm"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-3 lg:py-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-3 lg:py-5">
         <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <img src={logo} alt="Hafet Media Solutions" width={180} height={50} className="h-10 w-auto lg:h-12" />
+          <img src={logo} alt="Hafet Media Solutions" width={220} height={62} className="h-12 w-auto lg:h-16" />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-2 lg:flex">
           {NAV.map((item) =>
             item.mega ? (
               <div
@@ -59,7 +59,7 @@ export function Navbar() {
               >
                 <Link
                   to={item.to}
-                  className="flex items-center gap-1 rounded-md px-4 py-2 text-sm font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary"
+                  className="flex items-center gap-1 rounded-md px-4 py-2.5 text-sm font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary"
                   activeProps={{ className: "text-primary" }}
                 >
                   {item.label}
@@ -109,7 +109,7 @@ export function Navbar() {
               <Link
                 key={item.to}
                 to={item.to}
-                className="rounded-md px-3 py-2 text-sm font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary"
+                className="rounded-md px-4 py-2.5 text-sm font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary"
                 activeProps={{ className: "text-primary" }}
                 activeOptions={{ exact: item.to === "/" }}
               >
@@ -139,7 +139,7 @@ export function Navbar() {
 
       {/* Mobile full-screen overlay */}
       {open && (
-        <div className="fixed inset-0 top-[68px] z-40 overflow-y-auto bg-background lg:hidden">
+        <div className="fixed inset-0 top-[72px] z-40 overflow-y-auto bg-background lg:hidden">
           <nav className="flex flex-col gap-1 px-6 py-8">
             {NAV.map((item) => (
               <Link
@@ -170,3 +170,4 @@ export function Navbar() {
     </header>
   );
 }
+
