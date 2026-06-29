@@ -42,13 +42,13 @@ export function Navbar() {
         scrolled ? "bg-background/90 backdrop-blur-md border-b border-border/60" : "bg-background/40 backdrop-blur-sm"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-3 lg:py-5">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-3 lg:py-5">
         <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <img src={logo} alt="Hafet Media Solutions" width={220} height={62} className="h-12 w-auto lg:h-16" />
+          <img src={logo} alt="Hafet Media Solutions" width={280} height={79} className="h-14 w-auto sm:h-16 lg:h-20" />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-2 lg:flex">
+        <nav className="hidden items-center gap-1 min-[900px]:flex xl:gap-2">
           {NAV.map((item) =>
             item.mega ? (
               <div
@@ -59,7 +59,7 @@ export function Navbar() {
               >
                 <Link
                   to={item.to}
-                  className="flex items-center gap-1 rounded-md px-4 py-2.5 text-sm font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary"
+                  className="flex items-center gap-1 rounded-md px-2.5 py-2.5 text-xs font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary xl:px-4 xl:text-sm"
                   activeProps={{ className: "text-primary" }}
                 >
                   {item.label}
@@ -109,7 +109,7 @@ export function Navbar() {
               <Link
                 key={item.to}
                 to={item.to}
-                className="rounded-md px-4 py-2.5 text-sm font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary"
+                className="rounded-md px-2.5 py-2.5 text-xs font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary xl:px-4 xl:text-sm"
                 activeProps={{ className: "text-primary" }}
                 activeOptions={{ exact: item.to === "/" }}
               >
@@ -119,7 +119,7 @@ export function Navbar() {
           )}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <Link
             to="/contact"
             className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-semibold uppercase tracking-wider text-primary-foreground transition-all hover:brightness-110 hover:shadow-[0_0_25px_-5px_var(--primary)]"
@@ -130,7 +130,7 @@ export function Navbar() {
 
         <button
           aria-label="Open menu"
-          className="grid h-10 w-10 place-items-center rounded-md border border-border text-foreground lg:hidden"
+          className="grid h-10 w-10 place-items-center rounded-md border border-border text-foreground min-[900px]:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -139,7 +139,7 @@ export function Navbar() {
 
       {/* Mobile full-screen overlay */}
       {open && (
-        <div className="fixed inset-0 top-[72px] z-40 overflow-y-auto bg-background lg:hidden">
+        <div className="fixed inset-0 top-[80px] z-40 overflow-y-auto bg-background min-[900px]:hidden">
           <nav className="flex flex-col gap-1 px-6 py-8">
             {NAV.map((item) => (
               <Link
