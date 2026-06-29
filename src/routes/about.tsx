@@ -4,11 +4,13 @@ import { Target, Eye, Heart, MapPin } from "lucide-react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Hafet Media Solutions" },
-      { name: "description", content: "Hafet Media Solutions is a Dubai-based LED display and digital signage company serving the GCC with premium visual technology." },
+      { title: "About Hafet Media — LED Signage Company Dubai" },
+      { name: "description", content: "Hafet Media Solutions is a Dubai LED display and digital signage company supplying LED screens, LCD kiosks, 3D signage, neon signage and ESL solutions across the GCC." },
       { property: "og:title", content: "About Hafet Media Solutions" },
-      { property: "og:description", content: "5+ years, 500+ projects across UAE & the GCC." },
+      { property: "og:description", content: "Dubai-based LED display, signage and smart retail specialists with 500+ projects across UAE and GCC." },
+      { property: "og:url", content: "/about" },
     ],
+    links: [{ rel: "canonical", href: "/about" }],
   }),
   component: AboutPage,
 });
@@ -29,7 +31,7 @@ const STATS = [
 function AboutPage() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-border/60">
+      <section className="section-reveal relative overflow-hidden border-b border-border/60">
         <div className="absolute inset-0 led-glow opacity-50" />
         <div className="relative mx-auto max-w-5xl px-5 py-24 text-center sm:py-32">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">About Us</p>
@@ -44,7 +46,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-20">
+      <section className="section-reveal mx-auto max-w-7xl px-5 py-20">
         <div className="grid gap-6 md:grid-cols-3">
           {PILLARS.map(({ icon: Icon, title, text }) => (
             <div key={title} className="card-glow rounded-xl border border-border bg-card p-8">
@@ -58,7 +60,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="border-y border-border/60 bg-card/20">
+      <section className="section-reveal border-y border-border/60 bg-card/20">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-5 py-16 md:grid-cols-4">
           {STATS.map(([v, l]) => (
             <div key={l} className="text-center">
@@ -69,7 +71,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-5 py-24">
+      <section className="section-reveal mx-auto max-w-5xl px-5 py-24">
         <div className="rounded-2xl border border-border bg-card p-10 text-center">
           <MapPin className="mx-auto h-8 w-8 text-primary" />
           <h2 className="mt-4 font-display text-2xl font-bold sm:text-3xl">Visit our Dubai office</h2>

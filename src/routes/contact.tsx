@@ -1,17 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { MapPin, Mail, Phone, Send, CheckCircle2 } from "lucide-react";
+import { useState, type FormEvent } from "react";
+import { MapPin, Mail, Phone, Send, CheckCircle2, MessageCircle } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { CATEGORIES } from "@/lib/products";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Hafet Media Solutions" },
-      { name: "description", content: "Get in touch with Hafet Media Solutions in Dubai for LED displays, digital signage and electronic shelf solutions." },
+      { title: "Contact Hafet Media — LED Display Company Dubai" },
+      { name: "description", content: "Contact Hafet Media Solutions at info@hafetmedia.ae or WhatsApp +971 54 512 8212 for LED displays, digital signage, kiosks, ESL labels and signage projects in Dubai and GCC." },
       { property: "og:title", content: "Contact Hafet Media Solutions" },
-      { property: "og:description", content: "Dubai-based LED & signage experts serving the GCC." },
+      { property: "og:description", content: "Speak with Dubai LED display and digital signage experts for UAE and GCC project quotes." },
+      { property: "og:url", content: "/contact" },
     ],
+    links: [{ rel: "canonical", href: "/contact" }],
   }),
   component: ContactPage,
 });
@@ -19,9 +21,26 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   const [sent, setSent] = useState(false);
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const subject = encodeURIComponent(`Project enquiry from ${form.get("name") || "website visitor"}`);
+    const body = encodeURIComponent([
+      `Name: ${form.get("name") || ""}`,
+      `Company: ${form.get("company") || ""}`,
+      `Email: ${form.get("email") || ""}`,
+      `Phone: ${form.get("phone") || ""}`,
+      `Product Interest: ${form.get("interest") || ""}`,
+      "",
+      String(form.get("message") || ""),
+    ].join("\n"));
+    window.location.href = `mailto:${SITE.email}?subject=${subject}&body=${body}`;
+    setSent(true);
+  };
+
   return (
     <>
-      <section className="border-b border-border/60">
+      <section className="section-reveal border-b border-border/60">
         <div className="mx-auto max-w-5xl px-5 py-20 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Get in touch</p>
           <h1 className="mt-3 font-display text-4xl font-extrabold sm:text-5xl lg:text-6xl">
@@ -30,10 +49,18 @@ function ContactPage() {
           <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
             Tell us about your project — our Dubai team will respond within 24 hours with a tailored proposal.
           </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <a href={`mailto:${SITE.email}`} className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:brightness-110">
+              <Mail className="h-4 w-4" /> Email us
+            </a>
+            <a href={SITE.social.whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md border border-gold/60 px-5 py-3 text-sm font-semibold uppercase tracking-wider text-gold hover:bg-gold/10">
+              <MessageCircle className="h-4 w-4" /> WhatsApp
+            </a>
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-16">
+      <section className="section-reveal mx-auto max-w-7xl px-5 py-16">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
           {/* FORM */}
           <div className="rounded-2xl border border-border bg-card p-7 sm:p-10">
@@ -51,7 +78,7 @@ function ContactPage() {
             ) : (
               <form
                 className="grid gap-5"
-                onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+                onSubmit={handleSubmit}
               >
                 <div className="grid gap-5 sm:grid-cols-2">
                   <Field label="Name" name="name" required />
@@ -92,7 +119,7 @@ function ContactPage() {
                   type="submit"
                   className="inline-flex items-center justify-center gap-2 self-start rounded-md bg-primary px-8 py-3.5 text-sm font-semibold uppercase tracking-wider text-primary-foreground transition-all hover:brightness-110 hover:shadow-[0_0_30px_-8px_var(--primary)]"
                 >
-                  Send Message <Send className="h-4 w-4" />
+                  Open Email <Send className="h-4 w-4" />
                 </button>
               </form>
             )}
@@ -106,6 +133,7 @@ function ContactPage() {
                 <li className="flex gap-3"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> {SITE.address}</li>
                 <li className="flex gap-3"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> <a href={`mailto:${SITE.email}`} className="hover:text-primary">{SITE.email}</a></li>
                 <li className="flex gap-3"><Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> <a href={`tel:${SITE.phoneRaw}`} className="hover:text-primary">{SITE.phone}</a></li>
+                <li className="flex gap-3"><MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> <a href={SITE.social.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-primary">WhatsApp {SITE.phone}</a></li>
               </ul>
             </div>
 

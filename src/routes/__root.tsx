@@ -8,11 +8,13 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { MessageCircle, Phone } from "lucide-react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
+import { SITE } from "@/lib/site";
 
 function NotFoundComponent() {
   return (
@@ -82,6 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Hafet Media Solutions — Premium LED & Digital Signage" },
       { property: "og:description", content: "Premium LED & digital signage solutions across UAE, KSA, Qatar, Kuwait, Oman & Bahrain." },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Hafet Media Solutions" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -89,6 +92,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: SITE.name,
+          slogan: SITE.tagline,
+          description: "LED display, digital signage, LCD kiosk, 3D signage, neon signage and electronic shelf label supplier in Dubai serving UAE and GCC projects.",
+          address: SITE.address,
+          email: SITE.email,
+          telephone: SITE.phone,
+          areaServed: SITE.regions,
+          url: "/",
+          sameAs: [SITE.social.instagram, SITE.social.linkedin, SITE.social.youtube],
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -120,6 +141,24 @@ function RootComponent() {
         <main className="flex-1 pt-[68px] lg:pt-[80px]">
           <Outlet />
         </main>
+        <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-2">
+          <a
+            href={SITE.social.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+            className="grid h-12 w-12 place-items-center rounded-full bg-primary text-primary-foreground shadow-[0_12px_35px_-12px_var(--primary)] transition-transform hover:-translate-y-1 hover:brightness-110"
+          >
+            <MessageCircle className="h-5 w-5" />
+          </a>
+          <a
+            href={`tel:${SITE.phoneRaw}`}
+            aria-label={`Call ${SITE.phone}`}
+            className="grid h-12 w-12 place-items-center rounded-full border border-gold/60 bg-background/90 text-gold shadow-lg backdrop-blur transition-transform hover:-translate-y-1 hover:bg-card"
+          >
+            <Phone className="h-5 w-5" />
+          </a>
+        </div>
         <Footer />
       </div>
     </QueryClientProvider>
