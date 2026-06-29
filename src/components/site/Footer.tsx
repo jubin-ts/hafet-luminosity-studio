@@ -21,6 +21,25 @@ export function Footer() {
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
               Premium LED displays, digital signage and electronic shelf solutions across the GCC.
             </p>
+            <div className="mt-5 hidden gap-2 lg:flex">
+              {[
+                { href: SITE.social.instagram, Icon: Instagram, label: "Instagram" },
+                { href: SITE.social.linkedin, Icon: Linkedin, label: "LinkedIn" },
+                { href: SITE.social.whatsapp, Icon: WhatsApp, label: "WhatsApp" },
+                { href: SITE.social.youtube, Icon: Youtube, label: "YouTube" },
+              ].map(({ href, Icon, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="grid h-9 w-9 place-items-center rounded-md border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
           </div>
 
           <div className="hidden lg:block">
@@ -58,7 +77,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="md:order-3 lg:order-none">
+          <div className="md:order-3 lg:hidden">
             <h4 className="text-sm font-semibold uppercase tracking-wider text-gold">Social</h4>
             <div className="mt-4 flex justify-center gap-2 md:justify-start">
               {[
