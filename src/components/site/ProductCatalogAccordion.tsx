@@ -87,25 +87,25 @@ function CategoryAccordionItem({
         type="button"
         onClick={onToggle}
         aria-expanded={open}
-        className="grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-4 p-4 text-left transition-colors hover:bg-secondary/50 sm:p-5 lg:p-6"
+        className="grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-3 p-3 text-left transition-colors hover:bg-secondary/50 sm:p-4 lg:p-5"
       >
-        <span className="flex min-w-0 items-center gap-4">
-          <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg border border-border bg-background sm:h-20 sm:w-24">
+        <span className="flex min-w-0 items-center gap-3">
+          <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg border border-border bg-background sm:h-16 sm:w-20">
             <img src={category.image} alt="" loading="lazy" className="h-full w-full object-cover opacity-85" />
             <span className="absolute inset-0 bg-gradient-to-tr from-background/70 to-transparent" />
-            <span className="absolute bottom-2 left-2 grid h-7 w-7 place-items-center rounded-md bg-background/80 text-gold backdrop-blur">
-              <Icon className="h-4 w-4" />
+            <span className="absolute bottom-1.5 left-1.5 grid h-6 w-6 place-items-center rounded-md bg-background/80 text-gold backdrop-blur">
+              <Icon className="h-3.5 w-3.5" />
             </span>
           </span>
           <span className="min-w-0">
-            <span className="block font-display text-xl font-extrabold text-foreground sm:text-2xl">
+            <span className="block font-display text-lg font-extrabold text-foreground sm:text-xl">
               {category.name}
             </span>
-            <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">{category.short}</span>
+            <span className="mt-0.5 block text-sm leading-snug text-muted-foreground">{category.short}</span>
           </span>
         </span>
-        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-md border border-border text-gold">
-          <ChevronDown className={`h-5 w-5 transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
+        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-md border border-border text-gold">
+          <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
         </span>
       </button>
 
@@ -115,23 +115,23 @@ function CategoryAccordionItem({
         }`}
       >
         <div className="overflow-hidden">
-          <div className="grid auto-rows-fr gap-6 border-t border-border/60 bg-background/25 px-4 py-8 sm:px-6 md:grid-cols-2 lg:px-8 lg:py-10">
+          <div className="grid gap-4 border-t border-border/60 bg-background/25 px-3 py-5 sm:px-4 md:grid-cols-2 lg:px-6 lg:py-7">
             {category.subcategories.map((subcategory) => (
               <section
                 key={subcategory.slug}
                 id={subcategory.slug}
-                className={`flex h-full scroll-mt-32 flex-col rounded-xl border border-border/70 bg-card/80 p-4 shadow-[0_18px_50px_-38px_var(--foreground)] sm:p-5 ${
+                className={`flex h-full scroll-mt-32 flex-col rounded-xl border border-border/70 bg-card/80 p-3 shadow-[0_14px_40px_-30px_var(--foreground)] sm:p-4 ${
                   subcategory.products.length > 2 ? "md:col-span-2" : ""
                 }`}
               >
-                <header className="mb-5 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 border-b border-border/50 pb-4">
+                <header className="mb-3 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3 border-b border-border/50 pb-3">
                   <div className="min-w-0">
-                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">{category.name}</p>
-                    <h2 className="mt-2 font-display text-xl font-bold text-foreground sm:text-2xl">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-primary">{category.name}</p>
+                    <h2 className="mt-1 font-display text-lg font-bold text-foreground sm:text-xl">
                       {subcategory.name}
                     </h2>
                   </div>
-                  <div className="relative h-16 w-20 shrink-0 overflow-hidden rounded-lg border border-border bg-background sm:h-20 sm:w-24">
+                  <div className="relative h-14 w-18 shrink-0 overflow-hidden rounded-lg border border-border bg-background sm:h-16 sm:w-20">
                     <img src={subcategory.image} alt="" loading="lazy" className="h-full w-full object-cover opacity-90" />
                     <div className="absolute inset-0 bg-gradient-to-t from-card/70 to-transparent" />
                   </div>
