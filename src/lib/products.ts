@@ -25,6 +25,11 @@ import catLed from "@/assets/cat-led.jpg";
 import catLcd from "@/assets/cat-lcd.jpg";
 import catSign from "@/assets/cat-signage.jpg";
 import catEsl from "@/assets/cat-esl.jpg";
+import catAccessories from "@/assets/cat-accessories.jpg";
+import subAccessoriesPower from "@/assets/sub-accessories-power.jpg";
+import subAccessoriesMounting from "@/assets/sub-accessories-mounting.jpg";
+import subAccessoriesTools from "@/assets/sub-accessories-tools.jpg";
+import subInteractive from "@/assets/product-interactive-whiteboard.jpg";
 import subLedIndoor from "@/assets/sub-led-indoor.jpg";
 import subLedOutdoor from "@/assets/sub-led-outdoor.jpg";
 import subLedTransparent from "@/assets/sub-led-transparent.jpg";
@@ -82,6 +87,18 @@ export const CATEGORIES: Category[] = [
             description: "Ultra-fine pixels for close-up viewing.",
             specs: ["Pixel Pitch P1.2–P1.9", "3-year warranty", "Energy efficient"],
             applications: "Control rooms, home theatres, gaming areas.",
+          },
+          {
+            name: "Front Desk LED Screen",
+            description: "Wrap-around LED display integrated into reception and front-desk counters for branded check-in experiences.",
+            specs: ["Custom curved modules", "Fine pitch P1.5–P2.5", "Front service", "Silent operation"],
+            applications: "Hotel lobbies, corporate receptions, banks, showrooms, retail counters.",
+          },
+          {
+            name: "Double-Sided Indoor LED Screen",
+            description: "Back-to-back fixed indoor LED screen offering 180°+ visibility from both directions.",
+            specs: ["P1.9–P4 pixel pitch", "Slim cabinet", "Ceiling or floor mount", "Synchronised or independent content"],
+            applications: "Shopping mall aisles, airports, transit hubs, exhibition halls.",
           },
         ],
       },
@@ -391,6 +408,26 @@ export const CATEGORIES: Category[] = [
         ],
       },
       {
+        slug: "interactive-displays",
+        name: "Interactive Displays",
+        image: subInteractive,
+        products: [
+          {
+            name: "Interactive LCD Whiteboard",
+            description: "Multi-touch collaborative LCD display with built-in writing, annotation and screen sharing for modern classrooms and meeting rooms.",
+            specs: [
+              "Sizes 55\"–98\"",
+              "20-point multi-touch",
+              "4K UHD resolution",
+              "Built-in Android + OPS slot for Windows",
+              "Wireless screen mirroring",
+              "Anti-glare tempered glass",
+            ],
+            applications: "Classrooms, training centres, boardrooms, collaboration spaces, design studios.",
+          },
+        ],
+      },
+      {
         slug: "floor-standing",
         name: "Floor Standing LCD Displays",
         image: subLcdFloor,
@@ -405,6 +442,7 @@ export const CATEGORIES: Category[] = [
       },
     ],
   },
+
   {
     slug: "3d-neon-signage",
     name: "3D Signage & Neon Signage",
@@ -483,6 +521,79 @@ export const CATEGORIES: Category[] = [
       },
     ],
   },
+  {
+    slug: "accessories-parts",
+    name: "Accessories & Parts",
+    short: "Power supplies, cabling, mounting, service tools and flight cases for LED installations.",
+    image: catAccessories,
+    icon: "package",
+    subcategories: [
+      {
+        slug: "power-cabling",
+        name: "Power & Cabling",
+        image: subAccessoriesPower,
+        products: [
+          {
+            name: "Power Supply Unit",
+            description: "Stable, high-efficiency power supply engineered for LED display cabinets.",
+            specs: ["100–240V AC input", "5V DC output", "Overload & short-circuit protection", "Compact metal housing"],
+            applications: "All indoor and outdoor LED screen installations.",
+          },
+          {
+            name: "Optic Fiber Cable Reel",
+            description: "Pre-spooled high-bandwidth cabling for long-distance signal runs between sender and receiving cards.",
+            specs: ["Cat5e / Cat6a / Cat7 options", "Durable reel housing", "Custom lengths"],
+            applications: "Large-scale LED installations, stadiums, control rooms, rental events.",
+          },
+        ],
+      },
+      {
+        slug: "mounting-systems",
+        name: "Mounting Systems",
+        image: subAccessoriesMounting,
+        products: [
+          {
+            name: "Ground Support System",
+            description: "Modular truss-based ground stacking frame for rapid LED screen deployment.",
+            specs: ["Aluminium alloy truss", "Tool-free assembly", "Custom heights & widths", "Load-tested"],
+            applications: "Concerts, festivals, sports broadcasts, corporate events.",
+          },
+          {
+            name: "Wall Mount Frame",
+            description: "Heavy-duty steel frame for permanent fixed wall installation of LED cabinets.",
+            specs: ["Powder-coated steel", "Cabinet-specific fit", "Front-service compatible"],
+            applications: "Indoor & outdoor fixed installations on walls and facades.",
+          },
+          {
+            name: "Trolley Cart",
+            description: "Wheeled transport cart for moving and pre-staging LED cabinets between storage and install sites.",
+            specs: ["Heavy-duty castors", "Protective padding", "Multi-cabinet capacity"],
+            applications: "Rental workflows, touring shows, in-house AV teams.",
+          },
+        ],
+      },
+      {
+        slug: "service-tools",
+        name: "Service Tools & Cases",
+        image: subAccessoriesTools,
+        products: [
+          {
+            name: "Vacuum Suction Cup",
+            description: "Handheld vacuum tool for safely removing LED modules during front-service maintenance.",
+            specs: ["Dual-handle grip", "Strong vacuum hold", "Module-safe", "Lightweight"],
+            applications: "Service & maintenance of indoor and outdoor LED screens.",
+          },
+          {
+            name: "Flight Case",
+            description: "Road-ready aluminium flight case with custom foam interior to protect LED panels in transit.",
+            specs: ["Aluminium frame", "Steel ball corners", "Lockable latches", "Custom foam inserts"],
+            applications: "Rental fleets, touring productions, multi-venue campaigns.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getCategory = (slug: string) => CATEGORIES.find((c) => c.slug === slug);
+

@@ -58,6 +58,16 @@ import catalogIndoorLcdFloor from "@/assets/catalog/indoor-lcd-floor.jpeg";
 import catalogUhdOutdoorLed from "@/assets/catalog/uhd-outdoor-led.jpeg";
 import catalogDigitalShelf from "@/assets/catalog/digital-shelf.jpeg";
 import catalogMobileLcd from "@/assets/catalog/mobile-lcd.jpeg";
+import productFrontDeskLed from "@/assets/product-front-desk-led.jpg";
+import productDoubleSidedIndoorLed from "@/assets/product-double-sided-indoor-led.jpg";
+import productInteractiveWhiteboard from "@/assets/product-interactive-whiteboard.jpg";
+import productPowerSupply from "@/assets/product-power-supply.jpg";
+import productFiberReel from "@/assets/product-fiber-reel.jpg";
+import productGroundSupport from "@/assets/product-ground-support.jpg";
+import productWallMountFrame from "@/assets/product-wall-mount-frame.jpg";
+import productTrolleyCart from "@/assets/product-trolley-cart.jpg";
+import productSuctionCup from "@/assets/product-suction-cup.jpg";
+import productFlightCase from "@/assets/product-flight-case.jpg";
 
 export const productImageByName: Record<string, string> = {
   "Wall Mount Indoor LED Screen": productIndoorWallMountLed,
@@ -112,4 +122,14 @@ export const productImageByName: Record<string, string> = {
   "Chanelium Digital Signage": productNeonChaneliumDigitalSignage,
   "E-Ink Electronic Shelf Label": productEslEinkLabel,
   "LCD Shelf Display Screen": catalogDigitalShelf,
+  "Front Desk LED Screen": productFrontDeskLed,
+  "Double-Sided Indoor LED Screen": productDoubleSidedIndoorLed,
+  "Interactive LCD Whiteboard": productInteractiveWhiteboard,
+  "Power Supply Unit": productPowerSupply,
+  "Optic Fiber Cable Reel": productFiberReel,
+  "Ground Support System": productGroundSupport,
+  "Wall Mount Frame": productWallMountFrame,
+  "Trolley Cart": productTrolleyCart,
+  "Vacuum Suction Cup": productSuctionCup,
+  "Flight Case": productFlightCase,
 };
