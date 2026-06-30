@@ -34,11 +34,16 @@ export function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   const closeMenus = () => {
     setOpen(false);
     setMegaOpen(false);
+    setMobileProductsOpen(false);
   };
 
   return (
@@ -143,8 +148,9 @@ export function Navbar() {
         </div>
 
         <button
-          aria-label="Open menu"
-          className="grid h-10 w-10 place-items-center rounded-md border border-border text-foreground lg:hidden"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          className="relative z-50 grid h-10 w-10 place-items-center rounded-md border border-border text-foreground lg:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -153,8 +159,8 @@ export function Navbar() {
 
       {/* Mobile full-screen overlay */}
       {open && (
-        <div className="fixed inset-0 z-40 overflow-y-auto bg-background/98 pt-[92px] lg:hidden">
-          <nav className="flex min-h-[calc(100svh-92px)] flex-col gap-1 px-6 pb-8">
+        <div className="absolute left-0 right-0 top-full z-40 max-h-[calc(100svh-64px)] overflow-y-auto border-t border-border/60 bg-background/98 lg:hidden">
+          <nav className="flex min-h-[calc(100svh-64px)] flex-col gap-1 px-6 pb-8">
             <Link
               to="/"
               onClick={closeMenus}
