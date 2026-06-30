@@ -49,7 +49,12 @@ export function ProductCatalogAccordion({ initialCategorySlug }: ProductCatalogA
   const toggleCategory = (slug: string) => {
     setOpenSlug((current) => {
       const next = current === slug ? "" : slug;
-      if (next) window.history.replaceState(null, "", `#${next}`);
+      if (next) {
+        window.history.replaceState(null, "", `#${next}`);
+        window.requestAnimationFrame(() => {
+          document.getElementById(next)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      }
       return next;
     });
   };
