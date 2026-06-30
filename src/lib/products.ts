@@ -25,6 +25,11 @@ import catLed from "@/assets/cat-led.jpg";
 import catLcd from "@/assets/cat-lcd.jpg";
 import catSign from "@/assets/cat-signage.jpg";
 import catEsl from "@/assets/cat-esl.jpg";
+import catAccessories from "@/assets/cat-accessories.jpg";
+import subAccessoriesPower from "@/assets/sub-accessories-power.jpg";
+import subAccessoriesMounting from "@/assets/sub-accessories-mounting.jpg";
+import subAccessoriesTools from "@/assets/sub-accessories-tools.jpg";
+import subInteractive from "@/assets/product-interactive-whiteboard.jpg";
 import subLedIndoor from "@/assets/sub-led-indoor.jpg";
 import subLedOutdoor from "@/assets/sub-led-outdoor.jpg";
 import subLedTransparent from "@/assets/sub-led-transparent.jpg";
@@ -82,6 +87,18 @@ export const CATEGORIES: Category[] = [
             description: "Ultra-fine pixels for close-up viewing.",
             specs: ["Pixel Pitch P1.2–P1.9", "3-year warranty", "Energy efficient"],
             applications: "Control rooms, home theatres, gaming areas.",
+          },
+          {
+            name: "Front Desk LED Screen",
+            description: "Wrap-around LED display integrated into reception and front-desk counters for branded check-in experiences.",
+            specs: ["Custom curved modules", "Fine pitch P1.5–P2.5", "Front service", "Silent operation"],
+            applications: "Hotel lobbies, corporate receptions, banks, showrooms, retail counters.",
+          },
+          {
+            name: "Double-Sided Indoor LED Screen",
+            description: "Back-to-back fixed indoor LED screen offering 180°+ visibility from both directions.",
+            specs: ["P1.9–P4 pixel pitch", "Slim cabinet", "Ceiling or floor mount", "Synchronised or independent content"],
+            applications: "Shopping mall aisles, airports, transit hubs, exhibition halls.",
           },
         ],
       },
