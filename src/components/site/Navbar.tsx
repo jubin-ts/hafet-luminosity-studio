@@ -144,7 +144,7 @@ export function Navbar() {
 
         <button
           aria-label="Open menu"
-          className="grid h-10 w-10 place-items-center rounded-md border border-border text-foreground min-[900px]:hidden"
+          className="grid h-10 w-10 place-items-center rounded-md border border-border text-foreground lg:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -153,7 +153,7 @@ export function Navbar() {
 
       {/* Mobile full-screen overlay */}
       {open && (
-        <div className="fixed inset-0 z-40 overflow-y-auto bg-background/98 pt-[92px] min-[900px]:hidden">
+        <div className="fixed inset-0 z-40 overflow-y-auto bg-background/98 pt-[92px] lg:hidden">
           <nav className="flex min-h-[calc(100svh-92px)] flex-col gap-1 px-6 pb-8">
             <Link
               to="/"
