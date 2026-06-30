@@ -408,6 +408,26 @@ export const CATEGORIES: Category[] = [
         ],
       },
       {
+        slug: "interactive-displays",
+        name: "Interactive Displays",
+        image: subInteractive,
+        products: [
+          {
+            name: "Interactive LCD Whiteboard",
+            description: "Multi-touch collaborative LCD display with built-in writing, annotation and screen sharing for modern classrooms and meeting rooms.",
+            specs: [
+              "Sizes 55\"–98\"",
+              "20-point multi-touch",
+              "4K UHD resolution",
+              "Built-in Android + OPS slot for Windows",
+              "Wireless screen mirroring",
+              "Anti-glare tempered glass",
+            ],
+            applications: "Classrooms, training centres, boardrooms, collaboration spaces, design studios.",
+          },
+        ],
+      },
+      {
         slug: "floor-standing",
         name: "Floor Standing LCD Displays",
         image: subLcdFloor,
@@ -422,6 +442,7 @@ export const CATEGORIES: Category[] = [
       },
     ],
   },
+
   {
     slug: "3d-neon-signage",
     name: "3D Signage & Neon Signage",
