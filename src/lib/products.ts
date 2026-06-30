@@ -521,9 +521,6 @@ export const CATEGORIES: Category[] = [
       },
     ],
   },
-      },
-    ],
-  },
   {
     slug: "accessories-parts",
     name: "Accessories & Parts",
