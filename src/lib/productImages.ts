@@ -110,5 +110,5 @@ export const productImageByName: Record<string, string> = {
   "Solid Backlit Signage": productNeonSolidBacklitSignage,
   "Chanelium Digital Signage": productNeonChaneliumDigitalSignage,
   "E-Ink Electronic Shelf Label": productEslEinkLabel,
-  "LCD Shelf Display Screen": productEslLcdShelfDisplay,
+  "LCD Shelf Display Screen": catalogDigitalShelf,
 };
