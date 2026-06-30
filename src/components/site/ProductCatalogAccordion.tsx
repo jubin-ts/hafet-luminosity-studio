@@ -190,6 +190,8 @@ function ProductCard({
   subcategory: Subcategory;
   product: Product;
 }) {
+  const isMobileLcdDisplay = product.name === "Mobile LCD Display";
+
   return (
     <article className="card-glow flex h-full min-h-[360px] flex-col overflow-hidden rounded-lg border border-border bg-background/80">
       <div className="relative aspect-video overflow-hidden bg-card">
@@ -199,7 +201,9 @@ function ProductCard({
           loading="lazy"
           width={960}
           height={540}
-          className="h-full w-full object-cover opacity-95 transition-all duration-500 hover:scale-105 hover:opacity-100"
+          className={`h-full w-full opacity-95 transition-all duration-500 hover:opacity-100 ${
+            isMobileLcdDisplay ? "object-contain p-3 hover:scale-[1.02]" : "object-cover hover:scale-105"
+          }`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
         <span className="absolute left-2.5 top-2.5 max-w-[calc(100%-1.25rem)] rounded-full bg-background/85 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold backdrop-blur">
