@@ -1,8 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown, Monitor, Tv, Sparkles, Tag } from "lucide-react";
-import logoAsset from "@/assets/logo.png.asset.json";
-const logo = logoAsset.url;
+import logo from "@/assets/hafet-logo-white.png";
 import { CATEGORIES } from "@/lib/products";
 
 const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {

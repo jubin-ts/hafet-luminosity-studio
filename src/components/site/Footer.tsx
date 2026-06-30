@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Linkedin, Youtube, Phone, Mail, MapPin } from "lucide-react";
-import logoAsset from "@/assets/logo.png.asset.json";
-const logo = logoAsset.url;
+import logo from "@/assets/hafet-logo-white.png";
 import { SITE } from "@/lib/site";
 import { CATEGORIES } from "@/lib/products";
 
