@@ -49,6 +49,15 @@ import productNeonSolidBacklitSignage from "@/assets/product-neon-solid-backlit-
 import productNeonChaneliumDigitalSignage from "@/assets/product-neon-chanelium-digital-signage.jpg";
 import productEslEinkLabel from "@/assets/esl-eink-label.png";
 import productEslLcdShelfDisplay from "@/assets/esd-lcd-shelf-display.png";
+import catalogWallMountLcd from "@/assets/catalog/wall-mount-lcd.jpeg";
+import catalogTouchKiosk from "@/assets/catalog/touch-kiosk.jpeg";
+import catalogThreeFoldLed from "@/assets/catalog/three-fold-led.jpeg";
+import catalogOutdoorLcdKiosk from "@/assets/catalog/outdoor-lcd-kiosk.jpeg";
+import catalogIndoorRentalLed from "@/assets/catalog/indoor-rental-led.jpeg";
+import catalogIndoorLcdFloor from "@/assets/catalog/indoor-lcd-floor.jpeg";
+import catalogUhdOutdoorLed from "@/assets/catalog/uhd-outdoor-led.jpeg";
+import catalogDigitalShelf from "@/assets/catalog/digital-shelf.jpeg";
+import catalogMobileLcd from "@/assets/catalog/mobile-lcd.jpeg";
 
 export const productImageByName: Record<string, string> = {
   "Wall Mount Indoor LED Screen": productIndoorWallMountLed,
