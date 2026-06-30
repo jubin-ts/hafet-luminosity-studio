@@ -521,6 +521,82 @@ export const CATEGORIES: Category[] = [
       },
     ],
   },
+      },
+    ],
+  },
+  {
+    slug: "accessories-parts",
+    name: "Accessories & Parts",
+    short: "Power supplies, cabling, mounting, service tools and flight cases for LED installations.",
+    image: catAccessories,
+    icon: "package",
+    subcategories: [
+      {
+        slug: "power-cabling",
+        name: "Power & Cabling",
+        image: subAccessoriesPower,
+        products: [
+          {
+            name: "Power Supply Unit",
+            description: "Stable, high-efficiency power supply engineered for LED display cabinets.",
+            specs: ["100–240V AC input", "5V DC output", "Overload & short-circuit protection", "Compact metal housing"],
+            applications: "All indoor and outdoor LED screen installations.",
+          },
+          {
+            name: "Optic Fiber Cable Reel",
+            description: "Pre-spooled high-bandwidth cabling for long-distance signal runs between sender and receiving cards.",
+            specs: ["Cat5e / Cat6a / Cat7 options", "Durable reel housing", "Custom lengths"],
+            applications: "Large-scale LED installations, stadiums, control rooms, rental events.",
+          },
+        ],
+      },
+      {
+        slug: "mounting-systems",
+        name: "Mounting Systems",
+        image: subAccessoriesMounting,
+        products: [
+          {
+            name: "Ground Support System",
+            description: "Modular truss-based ground stacking frame for rapid LED screen deployment.",
+            specs: ["Aluminium alloy truss", "Tool-free assembly", "Custom heights & widths", "Load-tested"],
+            applications: "Concerts, festivals, sports broadcasts, corporate events.",
+          },
+          {
+            name: "Wall Mount Frame",
+            description: "Heavy-duty steel frame for permanent fixed wall installation of LED cabinets.",
+            specs: ["Powder-coated steel", "Cabinet-specific fit", "Front-service compatible"],
+            applications: "Indoor & outdoor fixed installations on walls and facades.",
+          },
+          {
+            name: "Trolley Cart",
+            description: "Wheeled transport cart for moving and pre-staging LED cabinets between storage and install sites.",
+            specs: ["Heavy-duty castors", "Protective padding", "Multi-cabinet capacity"],
+            applications: "Rental workflows, touring shows, in-house AV teams.",
+          },
+        ],
+      },
+      {
+        slug: "service-tools",
+        name: "Service Tools & Cases",
+        image: subAccessoriesTools,
+        products: [
+          {
+            name: "Vacuum Suction Cup",
+            description: "Handheld vacuum tool for safely removing LED modules during front-service maintenance.",
+            specs: ["Dual-handle grip", "Strong vacuum hold", "Module-safe", "Lightweight"],
+            applications: "Service & maintenance of indoor and outdoor LED screens.",
+          },
+          {
+            name: "Flight Case",
+            description: "Road-ready aluminium flight case with custom foam interior to protect LED panels in transit.",
+            specs: ["Aluminium frame", "Steel ball corners", "Lockable latches", "Custom foam inserts"],
+            applications: "Rental fleets, touring productions, multi-venue campaigns.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getCategory = (slug: string) => CATEGORIES.find((c) => c.slug === slug);
+
