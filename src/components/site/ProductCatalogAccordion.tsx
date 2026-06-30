@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, ChevronDown, Monitor, Sparkles, Tag, Tv } from "lucide-react";
+import { ArrowRight, ChevronDown, Monitor, Sparkles, Tag, Tv, Package } from "lucide-react";
 import { CATEGORIES, type Category, type Product, type Subcategory } from "@/lib/products";
 import { productImageByName } from "@/lib/productImages";
 
@@ -9,6 +9,7 @@ const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   tv: Tv,
   sparkles: Sparkles,
   tag: Tag,
+  package: Package,
 };
 
 type ProductCatalogAccordionProps = {

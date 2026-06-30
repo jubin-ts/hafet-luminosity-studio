@@ -1,11 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, ChevronDown, Monitor, Tv, Sparkles, Tag } from "lucide-react";
+import { Menu, X, ChevronDown, Monitor, Tv, Sparkles, Tag, Package } from "lucide-react";
 import logo from "@/assets/hafet-logo-white.png";
 import { CATEGORIES } from "@/lib/products";
 
 const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
-  monitor: Monitor, tv: Tv, sparkles: Sparkles, tag: Tag,
+  monitor: Monitor, tv: Tv, sparkles: Sparkles, tag: Tag, package: Package,
 };
 
 type NavItem = { to: "/" | "/about" | "/products" | "/projects" | "/blogs" | "/contact"; label: string; mega?: boolean };
