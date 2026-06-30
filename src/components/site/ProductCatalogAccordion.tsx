@@ -49,7 +49,12 @@ export function ProductCatalogAccordion({ initialCategorySlug }: ProductCatalogA
   const toggleCategory = (slug: string) => {
     setOpenSlug((current) => {
       const next = current === slug ? "" : slug;
-      if (next) window.history.replaceState(null, "", `#${next}`);
+      if (next) {
+        window.history.replaceState(null, "", `#${next}`);
+        window.requestAnimationFrame(() => {
+          document.getElementById(next)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      }
       return next;
     });
   };
@@ -82,12 +87,19 @@ function CategoryAccordionItem({
   const Icon = ICONS[category.icon] ?? Monitor;
 
   return (
-    <article id={category.slug} className="overflow-hidden rounded-xl border border-border bg-card/70 scroll-mt-28">
+    <article
+      id={category.slug}
+      className={`overflow-hidden rounded-xl border bg-card/80 scroll-mt-28 transition-colors ${
+        open ? "border-primary/60 shadow-[0_20px_60px_-30px_var(--primary)]" : "border-border"
+      }`}
+    >
       <button
         type="button"
         onClick={onToggle}
         aria-expanded={open}
-        className="grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-3 p-3 text-left transition-colors hover:bg-secondary/50 sm:p-4 lg:p-5"
+        className={`grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-3 p-3 text-left transition-colors hover:bg-secondary/50 sm:p-4 lg:p-5 ${
+          open ? "bg-secondary/40" : ""
+        }`}
       >
         <span className="flex min-w-0 items-center gap-3">
           <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg border border-border bg-background sm:h-16 sm:w-20">
@@ -104,18 +116,16 @@ function CategoryAccordionItem({
             <span className="mt-0.5 block text-sm leading-snug text-muted-foreground">{category.short}</span>
           </span>
         </span>
-        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-md border border-border text-gold">
+        <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-md border transition-colors ${
+          open ? "border-primary bg-primary/15 text-primary" : "border-border text-gold"
+        }`}>
           <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
         </span>
       </button>
 
-      <div
-        className={`grid transition-[grid-template-rows,opacity] duration-500 ease-out ${
-          open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-        }`}
-      >
-        <div className="overflow-hidden">
-          <div className="grid gap-4 border-t border-border/60 bg-background/25 px-3 py-5 sm:px-4 md:grid-cols-2 lg:px-6 lg:py-7">
+      {open && (
+        <div className="animate-accordion-down border-t border-border/60 bg-background/40">
+          <div className="grid gap-4 px-3 py-5 sm:px-4 md:grid-cols-2 lg:px-6 lg:py-7">
             {category.subcategories.map((subcategory) => (
               <section
                 key={subcategory.slug}
@@ -141,7 +151,7 @@ function CategoryAccordionItem({
             ))}
           </div>
         </div>
-      </div>
+      )}
     </article>
   );
 }

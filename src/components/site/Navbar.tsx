@@ -47,17 +47,17 @@ export function Navbar() {
         scrolled ? "bg-background/90 backdrop-blur-md border-b border-border/60" : "bg-background/40 backdrop-blur-sm"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-3 lg:py-5">
-        <Link to="/" className="flex items-center gap-3" onClick={closeMenus}>
-          <img src={logo} alt="Hafet Media Solutions" width={280} height={79} className="h-14 w-auto sm:h-16 lg:h-20" />
-          <span className="hidden font-display text-base font-extrabold uppercase leading-tight tracking-wide text-foreground sm:flex sm:flex-col">
-            <span>Hafet Media</span>
-            <span className="text-gradient-gold">Solutions</span>
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:gap-5 sm:px-5 lg:py-5">
+        <Link to="/" className="flex min-w-0 items-center gap-2 sm:gap-3" onClick={closeMenus}>
+          <img src={logo} alt="Hafet Media Solutions" width={280} height={79} className="h-10 w-auto shrink-0 sm:h-14 lg:h-20" />
+          <span className="flex min-w-0 flex-col font-display text-[11px] font-extrabold uppercase leading-tight tracking-wide text-foreground sm:text-base">
+            <span className="truncate">Hafet Media</span>
+            <span className="truncate text-gradient-gold">Solutions</span>
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 min-[900px]:flex xl:gap-2">
+        <nav className="hidden items-center gap-1 lg:flex xl:gap-2">
           {NAV.map((item) =>
             item.mega ? (
               <div
@@ -144,7 +144,7 @@ export function Navbar() {
 
         <button
           aria-label="Open menu"
-          className="grid h-10 w-10 place-items-center rounded-md border border-border text-foreground min-[900px]:hidden"
+          className="grid h-10 w-10 place-items-center rounded-md border border-border text-foreground lg:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -153,7 +153,7 @@ export function Navbar() {
 
       {/* Mobile full-screen overlay */}
       {open && (
-        <div className="fixed inset-0 z-40 overflow-y-auto bg-background/98 pt-[92px] min-[900px]:hidden">
+        <div className="fixed inset-0 z-40 overflow-y-auto bg-background/98 pt-[92px] lg:hidden">
           <nav className="flex min-h-[calc(100svh-92px)] flex-col gap-1 px-6 pb-8">
             <Link
               to="/"

@@ -382,6 +382,12 @@ export const CATEGORIES: Category[] = [
             specs: ["Ultra-slim", "Plug-and-play", "Multi-window"],
             applications: "Offices, classrooms, retail, public spaces.",
           },
+          {
+            name: "Mobile LCD Display",
+            description: "Wheeled, freestanding LCD stand for flexible placement and quick relocation.",
+            specs: ["Battery / mains powered", "Lockable castor wheels", "FHD / 4K panel options"],
+            applications: "Pop-up retail, exhibitions, lobbies, events, showrooms.",
+          },
         ],
       },
       {
