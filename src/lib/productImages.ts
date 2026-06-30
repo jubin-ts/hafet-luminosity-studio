@@ -49,13 +49,22 @@ import productNeonSolidBacklitSignage from "@/assets/product-neon-solid-backlit-
 import productNeonChaneliumDigitalSignage from "@/assets/product-neon-chanelium-digital-signage.jpg";
 import productEslEinkLabel from "@/assets/esl-eink-label.png";
 import productEslLcdShelfDisplay from "@/assets/esd-lcd-shelf-display.png";
+import catalogWallMountLcd from "@/assets/catalog/wall-mount-lcd.jpeg";
+import catalogTouchKiosk from "@/assets/catalog/touch-kiosk.jpeg";
+import catalogThreeFoldLed from "@/assets/catalog/three-fold-led.jpeg";
+import catalogOutdoorLcdKiosk from "@/assets/catalog/outdoor-lcd-kiosk.jpeg";
+import catalogIndoorRentalLed from "@/assets/catalog/indoor-rental-led.jpeg";
+import catalogIndoorLcdFloor from "@/assets/catalog/indoor-lcd-floor.jpeg";
+import catalogUhdOutdoorLed from "@/assets/catalog/uhd-outdoor-led.jpeg";
+import catalogDigitalShelf from "@/assets/catalog/digital-shelf.jpeg";
+import catalogMobileLcd from "@/assets/catalog/mobile-lcd.jpeg";
 
 export const productImageByName: Record<string, string> = {
   "Wall Mount Indoor LED Screen": productIndoorWallMountLed,
   "Portable Indoor LED Screen": productIndoorPortableLed,
   "Built-In Indoor LED Screen": productIndoorBuiltInLed,
   "Fine Pixel Indoor LED (Small Pitch)": productIndoorFinePixelLed,
-  "Fixed Outdoor LED Screen (SMD)": productOutdoorFixedLed,
+  "Fixed Outdoor LED Screen (SMD)": catalogUhdOutdoorLed,
   "Hanging Outdoor LED Screen": productOutdoorHangingLed,
   "Wall-Mounted Outdoor LED Screen": productOutdoorWallMountedLed,
   "Pole-Mounted Outdoor LED Screen": productOutdoorPoleMountedLed,
@@ -74,20 +83,20 @@ export const productImageByName: Record<string, string> = {
   "Movable LED Poster Display": productPosterMovableLed,
   "Dual-Sided LED Poster Display": productPosterDualSidedLed,
   "Foldable LED Poster Display": productPosterFoldableLed,
-  "Tri-Fold LED Poster Display": productPosterTrifoldLed,
-  "Indoor Rental LED Screen": productRentalIndoorLed,
+  "Tri-Fold LED Poster Display": catalogThreeFoldLed,
+  "Indoor Rental LED Screen": catalogIndoorRentalLed,
   "Outdoor Rental LED Screen": productRentalOutdoorLed,
   "360° Immersive LED Room": productImmersiveLedRoom,
   "LED Taxi Topper Display": productTaxiTopLed,
   "Interactive Floor LED Screen": productFloorLed,
   "Stadium Perimeter LED Board": productStadiumPerimeterLed,
   "Narrow Bezel LCD Video Wall": productLcdVideoWall,
-  "Wall Mount Commercial Display": productLcdWallMount,
+  "Wall Mount Commercial Display": catalogWallMountLcd,
   "A-Frame Digital Display Screen": productLcdAFrame,
-  "Interactive Touch Kiosk": productLcdTouchKiosk,
-  "Outdoor Touch Kiosk": productLcdOutdoorTouchKiosk,
-  "Rotating Digital Display": productLcdRotatingDisplay,
-  "Floor Standing Digital Signage Display": productLcdFloorStanding,
+  "Interactive Touch Kiosk": catalogTouchKiosk,
+  "Outdoor Touch Kiosk": catalogOutdoorLcdKiosk,
+  "Rotating Digital Display": catalogMobileLcd,
+  "Floor Standing Digital Signage Display": catalogIndoorLcdFloor,
   "3D Acrylic Signage": productSignageAcrylic3d,
   "Aluminium 3D Signage": productSignageAluminium3d,
   "Naked Eye 3D LED Screen": productSignageNakedEye3dLed,
@@ -101,5 +110,5 @@ export const productImageByName: Record<string, string> = {
   "Solid Backlit Signage": productNeonSolidBacklitSignage,
   "Chanelium Digital Signage": productNeonChaneliumDigitalSignage,
   "E-Ink Electronic Shelf Label": productEslEinkLabel,
-  "LCD Shelf Display Screen": productEslLcdShelfDisplay,
+  "LCD Shelf Display Screen": catalogDigitalShelf,
 };
